@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { EmberCanvas } from './EmberCanvas';
 
 export const HeroParallaxScene: React.FC = () => {
@@ -91,12 +92,12 @@ export const HeroParallaxScene: React.FC = () => {
           zIndex: 0,
         }}
       >
-        <img
+        <Image
           src="/assets/hero/layer-0-sky.png"
           alt=""
           width={1920}
           height={1080}
-          fetchPriority="high"
+          priority
           className="pixelated hero-layer-img"
         />
 
@@ -134,7 +135,7 @@ export const HeroParallaxScene: React.FC = () => {
           zIndex: 10,
         }}
       >
-        <img
+        <Image
           src="/assets/hero/layer-1-far.png"
           alt=""
           width={1920}
@@ -155,7 +156,7 @@ export const HeroParallaxScene: React.FC = () => {
           zIndex: 20,
         }}
       >
-        <img
+        <Image
           src="/assets/hero/layer-2-mid.png"
           alt=""
           width={1920}
@@ -189,7 +190,7 @@ export const HeroParallaxScene: React.FC = () => {
           zIndex: 30,
         }}
       >
-        <img
+        <Image
           src="/assets/hero/layer-3-front.png"
           alt=""
           width={1920}
