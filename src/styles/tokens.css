@@ -1,0 +1,80 @@
+/* ==========================================================================
+   FANTASY MEOWS - DESIGN TOKENS
+   Lantern-lit Storybook + Hearth Firelight
+   ========================================================================== */
+
+:root {
+  /* --- Storybook Foundations (Parchment & Ink) --- */
+  --color-parchment-base: #f7f2e7;
+  --color-parchment-card: #fffdf7;
+  --color-parchment-border: #e6dcbe;
+  --color-ink-primary: #2b1e16;
+  --color-ink-secondary: #5c4a3b;
+  --color-ink-muted: #8c7765;
+
+  /* --- Hearth & Night Foundations (Warm Charcoal & Hearth) --- */
+  --color-hearth-charcoal: #181412;
+  --color-hearth-soot: #241e1a;
+  --color-hearth-border: #3a312a;
+  --color-hearth-text: #f5eedc;
+  --color-hearth-muted: #a39382;
+
+  /* --- Warm Accents & Lantern Flames --- */
+  --color-candle-gold: #e8b64c;
+  --color-candle-glow: #f5cb68;
+  --color-candle-dark: #9c6b1f;
+  --color-ember-orange: #e0702a;
+  --color-ember-deep: #b8521a;
+
+  /* --- House Signature Colors (Verbatim from Reference Doc) --- */
+  --house-circle-of-whisk: #e8b64c; /* Candle-gold */
+  --house-pawguard: #4a6a8f;        /* Steel blue */
+  --house-rootpads: #5d7a3a;        /* Moss green */
+  --house-emberkin: #e0702a;        /* Ember orange */
+  --house-rimewhisper: #6fa8d6;     /* Glacier blue */
+  --house-voidpurr: #9a7ae0;        /* Starlight violet */
+
+  /* --- Shared Neutral Class Badge (Ink on parchment, gold outline) --- */
+  --class-badge-bg: #f5ecd8;
+  --class-badge-text: #2b1e16;
+  --class-badge-border: #d4a743;
+
+  /* --- Status Badges --- */
+  --color-status-progress-bg: #2f5a3a;
+  --color-status-progress-text: #e9f7df;
+  --color-status-planned-bg: #3a312a;
+  --color-status-planned-text: #d5c8b5;
+
+  /* --- Spacing Scale (4px baseline) --- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+
+  /* --- Border Radii (Subtle, bookish, not rounded-bubble) --- */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+  --radius-pill: 9999px;
+
+  /* --- Shadows & Glows --- */
+  --shadow-sm: 0 1px 2px rgba(43, 30, 22, 0.08);
+  --shadow-md: 0 4px 12px rgba(43, 30, 22, 0.1);
+  --shadow-lg: 0 8px 24px rgba(43, 30, 22, 0.14);
+  --glow-candle: 0 0 16px rgba(232, 182, 76, 0.35);
+  --glow-ember: 0 0 20px rgba(224, 112, 42, 0.4);
+
+  /* --- Typography Font Variables (injected via next/font) --- */
+  --font-pixel: var(--font-pixelify, 'Pixelify Sans', monospace);
+  --font-body: var(--font-lora, 'Lora', Georgia, serif);
+  --font-ui: var(--font-inter, 'Inter', system-ui, sans-serif);
+}
