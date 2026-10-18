@@ -40,7 +40,7 @@ export const MintSection: React.FC = () => {
         <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 44px' }}>
           <div style={{ display: 'inline-flex', marginBottom: '12px' }}>
             <span
-              className="font-pixel pixel-box-sm"
+              className="font-label pixel-box-sm"
               style={{
                 fontSize: '12px',
                 color: 'var(--color-candle-dark)',
@@ -85,8 +85,8 @@ export const MintSection: React.FC = () => {
         <div className="mint-params-grid" role="region" aria-label="Mint Specifications">
           {mintParams.map((param) => (
             <div key={param.label} className="pixel-box-sm mint-param-card">
-              <span className="font-pixel param-label">{param.label}</span>
-              <span className="font-pixel param-val">{param.value}</span>
+              <span className="font-label param-label">{param.label}</span>
+              <span className="font-label param-val">{param.value}</span>
             </div>
           ))}
         </div>
@@ -94,10 +94,10 @@ export const MintSection: React.FC = () => {
         {/* Plain Steps: OG / GTD / FCFS (All TBA, no progress bar, no active highlight) */}
         <div className="mint-steps-container">
           <div className="steps-header">
-            <h3 className="font-pixel" style={{ fontSize: '20px', color: 'var(--color-ink-primary)', margin: 0 }}>
+            <h3 className="font-label" style={{ fontSize: '20px', color: 'var(--color-ink-primary)', margin: 0 }}>
               Mint Phases
             </h3>
-            <span className="font-pixel" style={{ fontSize: '11px', color: 'var(--color-candle-dark)', letterSpacing: '0.05em' }}>
+            <span className="font-label" style={{ fontSize: '11px', color: 'var(--color-candle-dark)', letterSpacing: '0.05em' }}>
               ALL PHASES TBA
             </span>
           </div>
@@ -106,13 +106,13 @@ export const MintSection: React.FC = () => {
             {plainSteps.map((item) => (
               <div key={item.step} className="pixel-box mint-step-row" role="listitem">
                 <div className="step-num-col">
-                  <span className="font-pixel step-number">{item.step}</span>
+                  <span className="font-label step-number">{item.step}</span>
                 </div>
 
                 <div className="step-content-col">
                   <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '8px' }}>
-                    <h4 className="font-pixel step-tier-title">{item.tier}</h4>
-                    <span className="font-pixel step-status-pill">{item.status}</span>
+                    <h4 className="font-label step-tier-title">{item.tier}</h4>
+                    <span className="font-label step-status-pill">{item.status}</span>
                   </div>
                   <p className="font-body step-desc">{item.desc}</p>
                 </div>
@@ -142,7 +142,7 @@ export const MintSection: React.FC = () => {
           <div style={{ display: 'flex', alignItems: 'flex-start', gap: '12px' }}>
             <span style={{ fontSize: '20px', marginTop: '2px' }} aria-hidden="true">🔒</span>
             <div>
-              <h4 className="font-pixel" style={{ fontSize: '15px', color: 'var(--color-ink-primary)', margin: '0 0 6px' }}>
+              <h4 className="font-label" style={{ fontSize: '15px', color: 'var(--color-ink-primary)', margin: '0 0 6px' }}>
                 Safe Whisker Notice
               </h4>
               <p className="font-body" style={{ margin: 0, fontSize: '13.5px', color: 'var(--color-ink-secondary)', lineHeight: 1.5 }}>

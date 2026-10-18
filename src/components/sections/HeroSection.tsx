@@ -67,13 +67,14 @@ export const HeroSection: React.FC = () => {
             {content.hero.h1}
           </h1>
 
-          {/* Subheading in legible Pixel font */}
+          {/* Subheading in body font (pixel font is reserved for headings 24px+) */}
           <p
-            className="font-pixel"
+            className="font-body"
             style={{
               fontSize: 'clamp(1.2rem, 1.9vw, 1.4rem)',
+              fontWeight: 600,
               color: 'var(--color-candle-glow)',
-              letterSpacing: '0.04em',
+              letterSpacing: '0.01em',
               lineHeight: 1.25,
               textShadow: '0 2px 8px rgba(0, 0, 0, 0.95)',
               margin: 0,
@@ -107,14 +108,14 @@ export const HeroSection: React.FC = () => {
                 className="pixel-medallion"
               >
                 <span
-                  className="font-pixel"
-                  style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.06em', opacity: 0.9 }}
+                  className="font-body"
+                  style={{ fontSize: '11px', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.12em' }}
                 >
                   Enter
                 </span>
                 <span
-                  className="font-pixel"
-                  style={{ fontSize: '13px', fontWeight: 900, textAlign: 'center', lineHeight: 1.15 }}
+                  className="font-body"
+                  style={{ fontSize: '14px', fontWeight: 700, textAlign: 'center', lineHeight: 1.15 }}
                 >
                   Whiskerwild
                 </span>
@@ -199,10 +200,10 @@ export const HeroSection: React.FC = () => {
             <p
               className="font-body"
               style={{
-                fontSize: '12.5px',
-                color: 'var(--color-candle-gold)',
+                fontSize: '14px',
+                color: 'var(--color-candle-glow)',
                 fontStyle: 'italic',
-                textShadow: '0 1px 4px rgba(0, 0, 0, 0.9)',
+                textShadow: '0 1px 3px rgba(0, 0, 0, 0.95), 0 0 10px rgba(0, 0, 0, 0.85)',
                 margin: 0,
               }}
             >
@@ -213,10 +214,10 @@ export const HeroSection: React.FC = () => {
             <p
               className="font-body hero-quote-line"
               style={{
-                fontSize: '13.5px',
+                fontSize: '14px',
                 color: 'var(--color-hearth-muted)',
                 fontStyle: 'italic',
-                textShadow: '0 1px 4px rgba(0, 0, 0, 0.9)',
+                textShadow: '0 1px 3px rgba(0, 0, 0, 0.95), 0 0 10px rgba(0, 0, 0, 0.85)',
                 margin: 0,
               }}
             >
@@ -290,7 +291,7 @@ export const HeroSection: React.FC = () => {
             flex-direction: column;
             align-items: stretch;
             min-height: auto;
-            padding: 0 0 28px;
+            padding: 0;
             background-color: var(--color-hearth-charcoal);
           }
 
@@ -309,7 +310,7 @@ export const HeroSection: React.FC = () => {
             z-index: 20;
             width: 100%;
             padding-top: 16px;
-            padding-bottom: 16px;
+            padding-bottom: 12px;
             background-color: var(--color-hearth-charcoal);
           }
 

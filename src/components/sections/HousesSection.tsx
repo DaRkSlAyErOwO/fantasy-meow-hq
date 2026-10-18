@@ -78,7 +78,8 @@ export const HousesSection: React.FC = () => {
         padding: '96px 0 100px',
         backgroundColor: 'var(--color-hearth-charcoal)',
         borderTop: '4px solid var(--color-ink-primary)',
-        overflow: 'hidden',
+        // clip (not hidden) so the sticky portrait column still works
+        overflow: 'clip',
       }}
     >
       {/* Background Decorative Star Grid */}
@@ -99,9 +100,10 @@ export const HousesSection: React.FC = () => {
         <div style={{ textAlign: 'center', maxWidth: '720px', margin: '0 auto 40px' }}>
           <div style={{ display: 'inline-flex', marginBottom: '12px' }}>
             <span
-              className="font-pixel pixel-box-sm"
+              className="font-body pixel-box-sm"
               style={{
                 fontSize: '12px',
+                fontWeight: 700,
                 color: 'var(--color-candle-gold)',
                 textTransform: 'uppercase',
                 letterSpacing: '0.08em',
@@ -186,7 +188,7 @@ export const HousesSection: React.FC = () => {
                 <span style={{ fontSize: '18px' }} aria-hidden="true">
                   {house.emoji}
                 </span>
-                <span className="font-pixel" style={{ fontWeight: 800 }}>
+                <span className="font-body" style={{ fontWeight: 700 }}>
                   {house.name}
                 </span>
               </button>
@@ -201,8 +203,10 @@ export const HousesSection: React.FC = () => {
           aria-labelledby={`house-tab-${activeHouse.slug}`}
           className="house-showcase-stage"
         >
-          {/* Stage Left: Big Crisp Pixel Portrait (Whole-Number Scale) with Per-House Weather Canvas */}
+          {/* Stage Left: Big Crisp Pixel Portrait (Whole-Number Scale) with Per-House Weather Canvas.
+              Sticky on desktop so it stays beside long dossiers instead of leaving empty space. */}
           <div
+            className="house-art-col"
             style={{
               position: 'relative',
               display: 'flex',
@@ -282,7 +286,7 @@ export const HousesSection: React.FC = () => {
                   zIndex: 4,
                 }}
               >
-                <span className="font-pixel" style={{ fontSize: '13px', fontWeight: 800 }}>
+                <span className="font-body" style={{ fontSize: '14px', fontWeight: 700 }}>
                   {activeHouse.emoji} {activeHouse.name}
                 </span>
               </div>
@@ -291,7 +295,7 @@ export const HousesSection: React.FC = () => {
             {/* Preview art disclaimer */}
             <p
               className="font-body"
-              style={{ fontSize: '11.5px', color: 'var(--color-hearth-muted)', marginTop: '10px' }}
+              style={{ fontSize: '13px', color: 'var(--color-hearth-muted)', marginTop: '12px' }}
             >
               Preview art. The final collection may look different.
             </p>
@@ -350,9 +354,11 @@ export const HousesSection: React.FC = () => {
 
             {/* Tagline */}
             <p
-              className="font-pixel"
+              className="font-body"
               style={{
-                fontSize: '16px',
+                fontSize: '17px',
+                fontWeight: 600,
+                fontStyle: 'italic',
                 color: 'var(--color-candle-dark)',
                 lineHeight: 1.45,
                 margin: 0,
@@ -388,8 +394,8 @@ export const HousesSection: React.FC = () => {
               }}
             >
               <span
-                className="font-pixel"
-                style={{ fontSize: '13px', fontWeight: 800, color: 'var(--color-ink-primary)' }}
+                className="font-body"
+                style={{ fontSize: '14px', fontWeight: 700, color: 'var(--color-ink-primary)' }}
               >
                 Motto:
               </span>
@@ -404,9 +410,10 @@ export const HousesSection: React.FC = () => {
             {/* Signature Colors Swatches */}
             <div>
               <p
-                className="font-pixel"
+                className="font-body"
                 style={{
-                  fontSize: '13px',
+                  fontSize: '14px',
+                  fontWeight: 700,
                   color: 'var(--color-ink-primary)',
                   marginBottom: '8px',
                   margin: 0,
@@ -497,7 +504,15 @@ export const HousesSection: React.FC = () => {
           display: grid;
           grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
           gap: 40px;
-          align-items: center;
+          align-items: start;
+        }
+
+        /* Two-column layout: keep the portrait in view while reading the dossier */
+        @media (min-width: 720px) {
+          :global(.house-art-col) {
+            position: sticky;
+            top: 104px;
+          }
         }
 
         @media (max-width: 640px) {

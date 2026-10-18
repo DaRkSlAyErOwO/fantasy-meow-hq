@@ -14,7 +14,7 @@ export const SafetySection: React.FC = () => {
         <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 40px' }}>
           <div style={{ display: 'inline-flex', marginBottom: '12px' }}>
             <span
-              className="font-pixel pixel-box-sm"
+              className="font-label pixel-box-sm"
               style={{
                 fontSize: '12px',
                 color: 'var(--color-candle-dark)',
@@ -60,7 +60,7 @@ export const SafetySection: React.FC = () => {
           <div className="safety-header-banner">
             <span style={{ fontSize: '24px' }}>🛡️</span>
             <div>
-              <h3 className="font-pixel" style={{ fontSize: '19px', color: 'var(--color-ink-primary)', margin: 0 }}>
+              <h3 className="font-label" style={{ fontSize: '19px', color: 'var(--color-ink-primary)', margin: 0 }}>
                 We will never:
               </h3>
             </div>
@@ -77,24 +77,24 @@ export const SafetySection: React.FC = () => {
 
           <div className="safety-split-notes">
             <div className="note-card">
-              <span className="font-pixel note-title">Mint Link Caution</span>
+              <span className="font-label note-title">Mint Link Caution</span>
               <p className="font-body note-body">{safety.mintLinksNote}</p>
             </div>
             <div className="note-card">
-              <span className="font-pixel note-title">Protecting Yourself</span>
+              <span className="font-label note-title">Protecting Yourself</span>
               <p className="font-body note-body">{safety.protectNote}</p>
             </div>
           </div>
 
           <div className="official-channels-row">
-            <span className="font-pixel" style={{ fontSize: '13px', color: 'var(--color-ink-primary)' }}>
+            <span className="font-label" style={{ fontSize: '13px', color: 'var(--color-ink-primary)' }}>
               Official Links:
             </span>
             <a
               href={siteConfig.DISCORD_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-pixel official-link-pill"
+              className="font-label official-link-pill"
             >
               Discord: {siteConfig.DISCORD_URL}
             </a>
@@ -102,7 +102,7 @@ export const SafetySection: React.FC = () => {
               href={siteConfig.X_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-pixel official-link-pill"
+              className="font-label official-link-pill"
             >
               X: @{siteConfig.X_HANDLE}
             </a>

@@ -20,12 +20,7 @@ export const LoadingScreen: React.FC = () => {
       return;
     }
 
-    // 3. Skip during Lighthouse runs
-    if (typeof navigator !== 'undefined' && /lighthouse/i.test(navigator.userAgent)) {
-      return;
-    }
-
-    // Show loading screen for first-time human visitor
+    // Show loading screen for first-time visitor
     setLoading(true);
 
     // Max duration ~1.2s (comfortably within max ~1.5s)
@@ -212,7 +207,7 @@ export const LoadingScreen: React.FC = () => {
 
           {/* Progress title & percentage */}
           <div style={{ textAlign: 'center' }}>
-            <p className="font-pixel title-glow" style={{ fontSize: '20px', color: 'var(--color-candle-gold)', margin: 0 }}>
+            <p className="font-pixel title-glow" style={{ fontSize: '24px', color: 'var(--color-candle-gold)', margin: 0 }}>
               Lighting the Lanterns...
             </p>
             <p

@@ -37,7 +37,7 @@ export const Footer: React.FC = () => {
                 />
               </div>
             </Link>
-            <p className="font-pixel" style={{ color: 'var(--color-candle-gold)', fontSize: '15px' }}>
+            <p className="font-body" style={{ color: 'var(--color-candle-gold)', fontSize: '16px', fontWeight: 700 }}>
               {siteConfig.TAGLINE_PRIMARY}
             </p>
             <p style={{ color: 'var(--color-hearth-muted)', fontSize: '14px', maxWidth: '340px' }}>
@@ -91,7 +91,7 @@ export const Footer: React.FC = () => {
 
           {/* Navigation Links */}
           <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            <h2 className="font-pixel" style={{ color: 'var(--color-hearth-text)', fontSize: '16px' }}>
+            <h2 className="font-body" style={{ color: 'var(--color-hearth-text)', fontSize: '16px' }}>
               Explore
             </h2>
             <div
@@ -151,7 +151,7 @@ export const Footer: React.FC = () => {
             gap: '8px',
           }}
         >
-          <p className="font-pixel" style={{ color: 'var(--color-candle-gold)', fontSize: '15px' }}>
+          <p className="font-body" style={{ color: 'var(--color-candle-gold)', fontSize: '16px', fontWeight: 700 }}>
             Stay safe.
           </p>
           <p style={{ color: 'var(--color-hearth-text)', fontSize: '14px', lineHeight: 1.5 }}>
@@ -172,7 +172,7 @@ export const Footer: React.FC = () => {
           <ol
             style={{
               paddingLeft: '20px',
-              fontSize: '12px',
+              fontSize: '13px',
               color: 'var(--color-hearth-muted)',
               lineHeight: 1.6,
             }}
@@ -182,7 +182,7 @@ export const Footer: React.FC = () => {
               <li key={idx}>{item}</li>
             ))}
           </ol>
-          <p style={{ fontSize: '12px', color: 'var(--color-hearth-muted)', marginTop: '8px' }}>
+          <p style={{ fontSize: '13px', color: 'var(--color-hearth-muted)', marginTop: '8px' }}>
             © {siteConfig.COPYRIGHT_YEAR} {siteConfig.SITE_NAME}. All rights reserved.{' '}
             <Link href="/disclosures/" style={{ color: 'var(--color-candle-gold)', textDecoration: 'underline' }}>
               Read the full disclosures

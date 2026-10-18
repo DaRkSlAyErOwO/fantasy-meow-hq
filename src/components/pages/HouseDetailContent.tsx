@@ -23,7 +23,7 @@ export const HouseDetailContent: React.FC<HouseDetailContentProps> = ({
       <div className="container">
         {/* Top Navigation Row: Back Link & Prev/Next */}
         <div className="top-nav-bar">
-          <Link href="/houses/" className="font-pixel nav-back-link">
+          <Link href="/houses/" className="font-label nav-back-link">
             <span>&larr;</span>
             <span>All Houses</span>
           </Link>
@@ -31,7 +31,7 @@ export const HouseDetailContent: React.FC<HouseDetailContentProps> = ({
           <div className="prev-next-links">
             <Link
               href={`/houses/${prevHouse.slug}/`}
-              className="font-pixel prev-next-btn"
+              className="font-label prev-next-btn"
               title={`Previous: ${prevHouse.name}`}
             >
               &larr; {prevHouse.emoji} {prevHouse.name}
@@ -39,7 +39,7 @@ export const HouseDetailContent: React.FC<HouseDetailContentProps> = ({
             <span className="nav-divider" aria-hidden="true">&bull;</span>
             <Link
               href={`/houses/${nextHouse.slug}/`}
-              className="font-pixel prev-next-btn"
+              className="font-label prev-next-btn"
               title={`Next: ${nextHouse.name}`}
             >
               {nextHouse.name} {nextHouse.emoji} &rarr;
@@ -56,9 +56,9 @@ export const HouseDetailContent: React.FC<HouseDetailContentProps> = ({
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <span style={{ fontSize: '24px' }}>{house.emoji}</span>
-              <span className="font-pixel house-crest-tag">House of Whiskerwild</span>
+              <span className="font-label house-crest-tag">House of Whiskerwild</span>
             </div>
-            <span className="font-pixel house-motto-pill">
+            <span className="font-label house-motto-pill">
               &ldquo;{house.motto}&rdquo;
             </span>
           </div>
@@ -77,7 +77,7 @@ export const HouseDetailContent: React.FC<HouseDetailContentProps> = ({
                 />
               </div>
               <div className="den-greeting-box">
-                <span className="font-pixel den-label">Den Greeting</span>
+                <span className="font-label den-label">Den Greeting</span>
                 <p className="font-body den-text">&ldquo;{house.denGreeting}&rdquo;</p>
               </div>
             </div>
@@ -85,7 +85,7 @@ export const HouseDetailContent: React.FC<HouseDetailContentProps> = ({
             {/* House Dossier Details */}
             <div className="house-content-column">
               <div className="house-title-area">
-                <span className="font-pixel house-vibe-badge">
+                <span className="font-label house-vibe-badge">
                   {house.vibe}
                 </span>
                 <h1 className="font-pixel house-title-text">{house.name}</h1>
@@ -93,13 +93,13 @@ export const HouseDetailContent: React.FC<HouseDetailContentProps> = ({
               </div>
 
               <div className="house-section-block">
-                <h2 className="font-pixel sub-header">Lore &amp; Character</h2>
+                <h2 className="font-label sub-header">Lore &amp; Character</h2>
                 <p className="font-body house-description-text">{house.description}</p>
               </div>
 
               {/* Signature Colors Palette */}
               <div className="house-section-block">
-                <h2 className="font-pixel sub-header">Signature Palette</h2>
+                <h2 className="font-label sub-header">Signature Palette</h2>
                 <div className="palette-grid">
                   {house.signatureColors.map((color, idx) => (
                     <div key={idx} className="palette-item">
@@ -108,8 +108,8 @@ export const HouseDetailContent: React.FC<HouseDetailContentProps> = ({
                         style={{ backgroundColor: color.hex }}
                       />
                       <div className="palette-info">
-                        <span className="font-pixel swatch-name">{color.name}</span>
-                        <span className="font-mono swatch-hex">{color.hex}</span>
+                        <span className="font-label swatch-name">{color.name}</span>
+                        <span className="font-label swatch-hex">{color.hex}</span>
                       </div>
                     </div>
                   ))}
@@ -119,13 +119,13 @@ export const HouseDetailContent: React.FC<HouseDetailContentProps> = ({
               {/* Atlas Affinity & Discord Info */}
               <div className="dossier-meta-grid">
                 <div className="meta-card">
-                  <span className="font-pixel meta-label">Atlas Affinity</span>
+                  <span className="font-label meta-label">Atlas Affinity</span>
                   <p className="font-body meta-desc">{house.atlasAffinity}</p>
                 </div>
                 <div className="meta-card">
-                  <span className="font-pixel meta-label">Discord Den</span>
+                  <span className="font-label meta-label">Discord Den</span>
                   <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginTop: '6px' }}>
-                    <span className="font-mono discord-pill">#{house.discordChannel}</span>
+                    <span className="font-label discord-pill">#{house.discordChannel}</span>
                     <span className="font-body" style={{ fontSize: '13px', color: 'var(--color-ink-muted)' }}>
                       Pick this House in Discord to join
                     </span>
@@ -168,7 +168,7 @@ export const HouseDetailContent: React.FC<HouseDetailContentProps> = ({
             </Link>
             <Link
               href="/houses/"
-              className="font-pixel"
+              className="font-label"
               style={{
                 fontSize: '14px',
                 color: 'var(--color-candle-dark)',
@@ -406,13 +406,14 @@ export const HouseDetailContent: React.FC<HouseDetailContentProps> = ({
         }
 
         :global(.swatch-name) {
-          font-size: 12px;
+          font-size: 13.5px;
           color: var(--color-ink-primary);
         }
 
         :global(.swatch-hex) {
-          font-size: 11px;
-          color: var(--color-ink-muted);
+          font-size: 12.5px;
+          color: var(--color-ink-secondary);
+          text-transform: uppercase;
         }
 
         :global(.dossier-meta-grid) {
@@ -451,6 +452,7 @@ export const HouseDetailContent: React.FC<HouseDetailContentProps> = ({
           padding: 2px 6px;
           border-radius: 3px;
           border: 1px solid var(--color-parchment-border);
+          white-space: nowrap;
         }
 
         :global(.bottom-cycle-nav) {

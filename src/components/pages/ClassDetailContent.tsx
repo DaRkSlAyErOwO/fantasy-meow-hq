@@ -21,7 +21,7 @@ export const ClassDetailContent: React.FC<ClassDetailContentProps> = ({
       <div className="container">
         {/* Top Navigation Row: Back Link & Prev/Next */}
         <div className="top-nav-bar">
-          <Link href="/classes/" className="font-pixel nav-back-link">
+          <Link href="/classes/" className="font-label nav-back-link">
             <span>&larr;</span>
             <span>All Classes</span>
           </Link>
@@ -29,7 +29,7 @@ export const ClassDetailContent: React.FC<ClassDetailContentProps> = ({
           <div className="prev-next-links">
             <Link
               href={`/classes/${prevClass.slug}/`}
-              className="font-pixel prev-next-btn"
+              className="font-label prev-next-btn"
               title={`Previous: ${prevClass.name}`}
             >
               &larr; {prevClass.discordEmoji} {prevClass.name}
@@ -37,7 +37,7 @@ export const ClassDetailContent: React.FC<ClassDetailContentProps> = ({
             <span className="nav-divider" aria-hidden="true">&bull;</span>
             <Link
               href={`/classes/${nextClass.slug}/`}
-              className="font-pixel prev-next-btn"
+              className="font-label prev-next-btn"
               title={`Next: ${nextClass.name}`}
             >
               {nextClass.name} {nextClass.discordEmoji} &rarr;
@@ -50,13 +50,13 @@ export const ClassDetailContent: React.FC<ClassDetailContentProps> = ({
           {/* Top Header Bar */}
           <div className="class-top-bar">
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-              <span className="font-pixel neutral-class-badge">
+              <span className="font-label neutral-class-badge">
                 <span>{cls.discordEmoji}</span>
                 <span>{cls.role}</span>
               </span>
-              <span className="font-pixel class-group-tag">Class of Whiskerwild</span>
+              <span className="font-label class-group-tag">Class of Whiskerwild</span>
             </div>
-            <span className="font-pixel class-lore-quote">
+            <span className="font-label class-lore-quote">
               &ldquo;{cls.loreLine}&rdquo;
             </span>
           </div>
@@ -75,7 +75,7 @@ export const ClassDetailContent: React.FC<ClassDetailContentProps> = ({
                 />
               </div>
               <div className="kit-callout-box">
-                <span className="font-pixel kit-label">Silhouette Kit</span>
+                <span className="font-label kit-label">Silhouette Kit</span>
                 <p className="font-body kit-text">{cls.silhouetteKit}</p>
               </div>
             </div>
@@ -85,7 +85,7 @@ export const ClassDetailContent: React.FC<ClassDetailContentProps> = ({
               <div className="class-title-area">
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
                   <span style={{ fontSize: '24px' }}>{cls.discordEmoji}</span>
-                  <span className="font-pixel class-role-subtitle">{cls.role}</span>
+                  <span className="font-label class-role-subtitle">{cls.role}</span>
                 </div>
                 <h1 className="font-pixel class-title-text">{cls.name}</h1>
                 <p className="font-body class-flavor-text">{cls.flavor}</p>
@@ -94,15 +94,15 @@ export const ClassDetailContent: React.FC<ClassDetailContentProps> = ({
               {/* Signature Ability */}
               {cls.signatureAbility ? (
                 <div className="class-section-block">
-                  <h2 className="font-pixel sub-header">Signature Ability</h2>
+                  <h2 className="font-label sub-header">Signature Ability</h2>
                   <div className="ability-card">
-                    <span className="font-pixel ability-name">{cls.signatureAbility.name}</span>
+                    <span className="font-label ability-name">{cls.signatureAbility.name}</span>
                     <p className="font-body ability-desc">{cls.signatureAbility.description}</p>
                   </div>
                 </div>
               ) : (
                 <div className="class-section-block">
-                  <h2 className="font-pixel sub-header">Combat Focus</h2>
+                  <h2 className="font-label sub-header">Combat Focus</h2>
                   <p className="font-body" style={{ color: 'var(--color-ink-secondary)', margin: 0 }}>
                     Steady anchor of any Party. Guards and claims with balanced resilience across frontline tiles.
                   </p>
@@ -112,21 +112,21 @@ export const ClassDetailContent: React.FC<ClassDetailContentProps> = ({
               {/* Land Affinity & Role */}
               <div className="dossier-meta-grid">
                 <div className="meta-card">
-                  <span className="font-pixel meta-label">Land Affinity</span>
+                  <span className="font-label meta-label">Land Affinity</span>
                   <p className="font-body meta-desc">{cls.landAffinity}</p>
-                  <span className="font-pixel meta-subnote">Favored Atlas terrain</span>
+                  <span className="font-label meta-subnote">Favored Atlas terrain</span>
                 </div>
 
                 <div className="meta-card">
-                  <span className="font-pixel meta-label">Party Role</span>
+                  <span className="font-label meta-label">Party Role</span>
                   <p className="font-body meta-desc">{cls.role}</p>
-                  <span className="font-pixel meta-subnote">Tactical team function</span>
+                  <span className="font-label meta-subnote">Tactical team function</span>
                 </div>
               </div>
 
               {/* Discord Hub */}
               <div className="class-section-block">
-                <span className="font-pixel meta-label">Discord Class Hub</span>
+                <span className="font-label meta-label">Discord Class Hub</span>
                 <p className="font-body" style={{ fontSize: '13.5px', color: 'var(--color-ink-secondary)', margin: '4px 0 0' }}>
                   Join other {cls.name} cats in <code className="font-mono" style={{ backgroundColor: 'var(--color-parchment-base)', padding: '2px 6px', borderRadius: '3px' }}>#class-hub</code> on our Discord.
                 </p>
@@ -170,7 +170,7 @@ export const ClassDetailContent: React.FC<ClassDetailContentProps> = ({
             </Link>
             <Link
               href="/classes/"
-              className="font-pixel"
+              className="font-label"
               style={{
                 fontSize: '14px',
                 color: 'var(--color-candle-dark)',

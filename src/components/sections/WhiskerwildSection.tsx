@@ -124,9 +124,10 @@ export const WhiskerwildSection: React.FC = () => {
           <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 36px' }}>
             <div style={{ display: 'inline-flex', marginBottom: '10px' }}>
               <span
-                className="font-pixel pixel-box-sm"
+                className="font-body pixel-box-sm"
                 style={{
                   fontSize: '12px',
+                  fontWeight: 700,
                   color: 'var(--color-candle-dark)',
                   textTransform: 'uppercase',
                   letterSpacing: '0.1em',
@@ -188,7 +189,7 @@ export const WhiskerwildSection: React.FC = () => {
                       style={{ objectFit: 'cover', imageRendering: 'pixelated' }}
                     />
                   </div>
-                  <span className="font-pixel storybook-caption">
+                  <span className="font-body storybook-caption">
                     A cat of Whiskerwild
                   </span>
                 </div>
@@ -213,8 +214,8 @@ export const WhiskerwildSection: React.FC = () => {
               <div ref={cardsRef} className="storybook-beats-grid">
                 {content.whatIsThis.map((item) => (
                   <div key={item.number} className="pixel-box-sm storybook-beat-card">
-                    <span className="font-pixel beat-number">{item.number}</span>
-                    <h3 className="font-pixel beat-title">{item.title || item.ClassTitle}</h3>
+                    <span className="font-body beat-number">{item.number}</span>
+                    <h3 className="font-body beat-title">{item.title || item.ClassTitle}</h3>
                     <p className="font-body beat-text">{item.text}</p>
                   </div>
                 ))}
@@ -236,9 +237,10 @@ export const WhiskerwildSection: React.FC = () => {
               {/* Corner Ribbon / Badge */}
               <div style={{ display: 'inline-flex', marginBottom: '14px' }}>
                 <span
-                  className="font-pixel pixel-box-sm"
+                  className="font-body pixel-box-sm"
                   style={{
-                    fontSize: '11px',
+                    fontSize: '12px',
+                    fontWeight: 700,
                     backgroundColor: 'var(--color-candle-gold)',
                     color: 'var(--color-ink-primary)',
                     padding: '3px 10px',
@@ -289,8 +291,8 @@ export const WhiskerwildSection: React.FC = () => {
                 <p
                   className="font-body"
                   style={{
-                    fontSize: '13.5px',
-                    color: 'var(--color-ink-muted)',
+                    fontSize: '14px',
+                    color: 'var(--color-ink-secondary)',
                     fontStyle: 'italic',
                     margin: 0,
                   }}
@@ -312,13 +314,13 @@ export const WhiskerwildSection: React.FC = () => {
 
         /* Hero -> Parchment Transition: Gradual ~160px soft fade, no hard orange band */
         :global(.ember-to-parchment-fade) {
-          height: 160px;
+          height: 128px;
           width: 100%;
           position: relative;
           background: linear-gradient(
             to bottom,
             var(--color-hearth-charcoal) 0%,
-            rgba(26, 20, 24, 0.92) 18%,
+            rgba(120, 58, 24, 0.38) 26%,
             rgba(180, 80, 24, 0.14) 48%,
             rgba(232, 182, 76, 0.10) 78%,
             var(--color-parchment-base) 100%
@@ -381,8 +383,9 @@ export const WhiskerwildSection: React.FC = () => {
         }
 
         :global(.storybook-caption) {
-          font-size: 11px;
-          color: var(--color-ink-muted);
+          font-size: 12.5px;
+          font-style: italic;
+          color: var(--color-ink-secondary);
           margin-top: 8px;
           text-align: center;
           letter-spacing: 0.04em;
@@ -424,13 +427,14 @@ export const WhiskerwildSection: React.FC = () => {
 
         :global(.beat-number) {
           font-size: 13px;
-          font-weight: 800;
+          font-weight: 700;
           color: var(--color-candle-dark);
           letter-spacing: 0.05em;
+          font-variant-numeric: tabular-nums;
         }
 
         :global(.beat-title) {
-          font-size: 18px;
+          font-size: 19px;
           color: var(--color-ink-primary);
           margin: 0;
         }
@@ -465,7 +469,7 @@ export const WhiskerwildSection: React.FC = () => {
 
         @media (max-width: 640px) {
           :global(.ember-to-parchment-fade) {
-            height: 120px;
+            height: 96px;
           }
 
           :global(.storybook-img-frame) {

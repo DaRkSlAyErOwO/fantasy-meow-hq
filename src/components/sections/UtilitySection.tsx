@@ -65,7 +65,7 @@ export const UtilitySection: React.FC = () => {
         <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 48px' }}>
           <div style={{ display: 'inline-flex', marginBottom: '12px' }}>
             <span
-              className="font-pixel pixel-box-sm"
+              className="font-label pixel-box-sm"
               style={{
                 fontSize: '12px',
                 color: 'var(--color-candle-dark)',
@@ -112,10 +112,10 @@ export const UtilitySection: React.FC = () => {
             <div key={slot.id} className="pixel-box inventory-slot-card">
               {/* Slot Header Label */}
               <div className="slot-header-bar">
-                <span className="font-pixel slot-indicator">
+                <span className="font-label slot-indicator">
                   SLOT [{slot.slotNum}]
                 </span>
-                <span className="font-pixel phase-pill">
+                <span className="font-label phase-pill">
                   {slot.phaseLabel}
                 </span>
               </div>
@@ -145,7 +145,7 @@ export const UtilitySection: React.FC = () => {
 
               {/* What This Isn't Callout */}
               <div className="what-isnt-box">
-                <span className="font-pixel what-isnt-tag">What this isn&apos;t:</span>
+                <span className="font-label what-isnt-tag">What this isn&apos;t:</span>
                 <p className="font-body what-isnt-text">{slot.whatThisIsnt}</p>
               </div>
             </div>
@@ -155,13 +155,13 @@ export const UtilitySection: React.FC = () => {
         {/* Summary Banner */}
         <div className="pixel-box-sm utility-summary-banner">
           <p className="font-body" style={{ margin: 0, fontSize: '14px', color: 'var(--color-ink-secondary)', lineHeight: 1.55 }}>
-            <strong className="font-pixel" style={{ color: 'var(--color-ink-primary)' }}>Full stack: </strong>
+            <strong className="font-label" style={{ color: 'var(--color-ink-primary)' }}>Full stack: </strong>
             Meow &rarr; Discord identity + Hearth Rest + Party power; Territory &rarr; a tile on the Atlas, held by one holder or (for Landmarks) in slices.
           </p>
           <div style={{ marginTop: '12px' }}>
             <Link
               href="/disclosures/"
-              className="font-pixel"
+              className="font-label"
               style={{
                 fontSize: '13px',
                 color: 'var(--color-candle-dark)',
@@ -251,7 +251,7 @@ export const UtilitySection: React.FC = () => {
         }
 
         :global(.slot-title) {
-          font-size: 22px;
+          font-size: 24px;
           color: var(--color-ink-primary);
           margin: 0;
         }
@@ -298,8 +298,8 @@ export const UtilitySection: React.FC = () => {
         }
 
         :global(.what-isnt-tag) {
-          font-size: 11px;
-          color: var(--color-ink-muted);
+          font-size: 12px;
+          color: var(--color-ink-primary);
           text-transform: uppercase;
           letter-spacing: 0.05em;
           display: block;
@@ -307,8 +307,8 @@ export const UtilitySection: React.FC = () => {
         }
 
         :global(.what-isnt-text) {
-          font-size: 12.5px;
-          color: var(--color-ink-secondary);
+          font-size: 13.5px;
+          color: var(--color-ink-primary);
           font-style: italic;
           line-height: 1.45;
           margin: 0;
@@ -342,7 +342,7 @@ export const UtilitySection: React.FC = () => {
           }
 
           :global(.slot-title) {
-            font-size: 20px;
+            font-size: 24px;
           }
         }
 

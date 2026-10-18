@@ -20,9 +20,10 @@ export const FaqSection: React.FC = () => {
         <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 48px' }}>
           <div style={{ display: 'inline-flex', marginBottom: '12px' }}>
             <span
-              className="font-pixel pixel-box-sm"
+              className="font-body pixel-box-sm"
               style={{
                 fontSize: '12px',
+                fontWeight: 700,
                 color: 'var(--color-candle-dark)',
                 textTransform: 'uppercase',
                 letterSpacing: '0.1em',
@@ -74,7 +75,7 @@ export const FaqSection: React.FC = () => {
                 style={{ objectFit: 'cover', imageRendering: 'pixelated' }}
               />
             </div>
-            <div className="font-pixel speaker-nametag">
+            <div className="font-body speaker-nametag">
               <span>Whiskerwild Guide</span>
             </div>
             <p className="font-body speaker-quote">
@@ -112,7 +113,7 @@ export const FaqSection: React.FC = () => {
                         prevBtn?.focus();
                       }
                     }}
-                    className="font-pixel dialogue-question-btn"
+                    className="font-body dialogue-question-btn"
                   >
                     <span className="dialogue-cursor" aria-hidden="true">
                       {isOpen ? '▼' : '▶'}
@@ -129,9 +130,6 @@ export const FaqSection: React.FC = () => {
                       className="dialogue-answer-bubble"
                     >
                       <p className="font-body answer-text">{item.answer}</p>
-                      <div className="dialogue-prompt-tail" aria-hidden="true">
-                        <span className="blinking-caret">▼</span>
-                      </div>
                     </div>
                   )}
                 </div>
@@ -170,7 +168,7 @@ export const FaqSection: React.FC = () => {
           border: 3px solid #2b1e16;
           box-shadow: 4px 4px 0 #2b1e16;
           position: sticky;
-          top: 90px;
+          top: 104px;
         }
 
         :global(.speaker-avatar-frame) {
@@ -186,7 +184,8 @@ export const FaqSection: React.FC = () => {
         }
 
         :global(.speaker-nametag) {
-          font-size: 14px;
+          font-size: 15px;
+          font-weight: 700;
           color: var(--color-ink-primary);
           display: flex;
           flex-direction: column;
@@ -201,8 +200,8 @@ export const FaqSection: React.FC = () => {
         }
 
         :global(.speaker-quote) {
-          font-size: 12px;
-          color: var(--color-ink-muted);
+          font-size: 13px;
+          color: var(--color-ink-secondary);
           font-style: italic;
           margin: 10px 0 0;
           line-height: 1.4;
@@ -239,7 +238,8 @@ export const FaqSection: React.FC = () => {
           align-items: center;
           gap: 12px;
           cursor: pointer;
-          font-size: 16px;
+          font-size: 16.5px;
+          font-weight: 700;
           color: var(--color-ink-primary);
           outline: none;
           transition: background-color 0.15s ease;
@@ -272,23 +272,6 @@ export const FaqSection: React.FC = () => {
           color: var(--color-ink-secondary);
           line-height: 1.6;
           margin: 0;
-        }
-
-        :global(.dialogue-prompt-tail) {
-          display: flex;
-          justify-content: flex-end;
-          margin-top: 10px;
-        }
-
-        :global(.blinking-caret) {
-          font-size: 11px;
-          color: var(--color-candle-dark);
-          animation: caretBlink 1.2s infinite ease-in-out;
-        }
-
-        @keyframes caretBlink {
-          0%, 100% { opacity: 0.2; transform: translateY(0); }
-          50% { opacity: 1; transform: translateY(2px); }
         }
 
         @media (max-width: 860px) {
@@ -337,9 +320,6 @@ export const FaqSection: React.FC = () => {
         }
 
         @media (prefers-reduced-motion: reduce) {
-          :global(.blinking-caret) {
-            animation: none !important;
-          }
           :global(.dialogue-box-item) {
             transition: none !important;
           }

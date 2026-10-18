@@ -248,8 +248,8 @@ export const HeroParallaxScene: React.FC = () => {
           bottom: 0;
           left: 0;
           right: 0;
-          height: 180px;
-          background: linear-gradient(to bottom, transparent 0%, rgba(24, 20, 18, 0.4) 40%, rgba(24, 20, 18, 0.85) 75%, var(--color-hearth-charcoal) 100%);
+          height: 72px;
+          background: linear-gradient(to bottom, transparent 0%, rgba(24, 20, 18, 0.55) 55%, var(--color-hearth-charcoal) 100%);
           pointer-events: none;
           z-index: 40;
         }
@@ -290,8 +290,8 @@ export const HeroParallaxScene: React.FC = () => {
           }
 
           :global(.hero-bottom-vignette) {
-            height: 100px;
-            background: linear-gradient(to bottom, transparent 0%, rgba(24, 20, 18, 0.5) 50%, var(--color-hearth-charcoal) 100%);
+            height: 56px;
+            background: linear-gradient(to bottom, transparent 0%, var(--color-hearth-charcoal) 100%);
           }
         }
 

@@ -65,8 +65,15 @@ canvas.pixelated {
   image-rendering: pixelated;
 }
 
-/* --- Typography Helpers --- */
-h1, h2, h3, h4, h5, h6,
+/* --- Typography Helpers ---
+   Pixel font is opt-in via .font-pixel and reserved for headings 24px+.
+   Everything smaller (labels, chips, numerals, hex codes, handles) uses the body font. */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-body);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
 .font-pixel {
   font-family: var(--font-pixel);
   letter-spacing: 0.02em;
@@ -76,6 +83,13 @@ h1, h2, h3, h4, h5, h6,
 
 .font-body {
   font-family: var(--font-body);
+}
+
+/* Small labels, chips, tags and numerals: body font, bold */
+.font-label {
+  font-family: var(--font-body);
+  font-weight: 700;
+  letter-spacing: 0.02em;
 }
 
 .font-ui {

@@ -14,7 +14,7 @@ export const RoadmapSection: React.FC = () => {
         <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 48px' }}>
           <div style={{ display: 'inline-flex', marginBottom: '12px' }}>
             <span
-              className="font-pixel pixel-box-sm"
+              className="font-label pixel-box-sm"
               style={{
                 fontSize: '12px',
                 color: 'var(--color-candle-dark)',
@@ -62,14 +62,14 @@ export const RoadmapSection: React.FC = () => {
               {/* Quest Header Bar */}
               <div className="quest-header">
                 <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                  <span className="font-pixel quest-phase-badge">
+                  <span className="font-label quest-phase-badge">
                     Phase {item.phase}
                   </span>
-                  <h3 className="font-pixel quest-name">{item.name}</h3>
+                  <h3 className="font-label quest-name">{item.name}</h3>
                 </div>
 
                 {/* Status: Strictly "TBA" as required */}
-                <span className="font-pixel quest-status-pill">
+                <span className="font-label quest-status-pill">
                   Status: TBA
                 </span>
               </div>
@@ -95,7 +95,7 @@ export const RoadmapSection: React.FC = () => {
           <div style={{ textAlign: 'center', marginTop: '12px' }}>
             <Link
               href="/#roadmap"
-              className="font-pixel"
+              className="font-label"
               style={{
                 fontSize: '13px',
                 color: 'var(--color-candle-dark)',

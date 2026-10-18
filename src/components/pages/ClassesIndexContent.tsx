@@ -15,7 +15,7 @@ export const ClassesIndexContent: React.FC = () => {
         <div style={{ marginBottom: '24px' }}>
           <Link
             href="/"
-            className="font-pixel"
+            className="font-label"
             style={{
               fontSize: '13px',
               color: 'var(--color-candle-dark)',
@@ -34,7 +34,7 @@ export const ClassesIndexContent: React.FC = () => {
         <div style={{ maxWidth: '820px', marginBottom: '44px' }}>
           <div style={{ display: 'inline-flex', marginBottom: '10px' }}>
             <span
-              className="font-pixel pixel-box-sm"
+              className="font-label pixel-box-sm"
               style={{
                 fontSize: '11px',
                 color: 'var(--color-candle-dark)',
@@ -80,11 +80,11 @@ export const ClassesIndexContent: React.FC = () => {
           {classesList.map((cls) => (
             <div key={cls.slug} className="pixel-box class-card">
               <div className="class-card-top-bar">
-                <span className="font-pixel neutral-class-badge">
+                <span className="font-label neutral-class-badge">
                   <span>{cls.discordEmoji}</span>
                   <span>{cls.role}</span>
                 </span>
-                <span className="font-pixel class-lore-quote">&ldquo;{cls.loreLine}&rdquo;</span>
+                <span className="font-label class-lore-quote">&ldquo;{cls.loreLine}&rdquo;</span>
               </div>
 
               <div className="class-card-body">
@@ -103,13 +103,13 @@ export const ClassesIndexContent: React.FC = () => {
 
                 <div className="class-meta-section">
                   <div className="meta-row">
-                    <span className="font-pixel meta-key">Silhouette Kit:</span>
+                    <span className="font-label meta-key">Silhouette Kit:</span>
                     <span className="font-body meta-val">{cls.silhouetteKit}</span>
                   </div>
 
                   {cls.signatureAbility && (
                     <div className="meta-row">
-                      <span className="font-pixel meta-key">Ability:</span>
+                      <span className="font-label meta-key">Ability:</span>
                       <span className="font-body meta-val">
                         <strong>{cls.signatureAbility.name}:</strong> {cls.signatureAbility.description}
                       </span>
@@ -117,7 +117,7 @@ export const ClassesIndexContent: React.FC = () => {
                   )}
 
                   <div className="meta-row">
-                    <span className="font-pixel meta-key">Land Affinity:</span>
+                    <span className="font-label meta-key">Land Affinity:</span>
                     <span className="font-body meta-val">{cls.landAffinity}</span>
                   </div>
                 </div>
@@ -235,7 +235,7 @@ export const ClassesIndexContent: React.FC = () => {
         }
 
         :global(.class-name) {
-          font-size: 22px;
+          font-size: 24px;
           color: var(--color-ink-primary);
           margin: 0 0 6px;
         }

@@ -10,19 +10,19 @@
   --color-parchment-border: #e6dcbe;
   --color-ink-primary: #2b1e16;
   --color-ink-secondary: #5c4a3b;
-  --color-ink-muted: #8c7765;
+  --color-ink-muted: #6f5c4c;       /* 5.7:1 on parchment-base (WCAG AA) */
 
   /* --- Hearth & Night Foundations (Warm Charcoal & Hearth) --- */
   --color-hearth-charcoal: #181412;
   --color-hearth-soot: #241e1a;
   --color-hearth-border: #3a312a;
   --color-hearth-text: #f5eedc;
-  --color-hearth-muted: #a39382;
+  --color-hearth-muted: #c4b5a3;    /* 9.1:1 on charcoal, holds AA over hero art */
 
   /* --- Warm Accents & Lantern Flames --- */
   --color-candle-gold: #e8b64c;
   --color-candle-glow: #f5cb68;
-  --color-candle-dark: #9c6b1f;
+  --color-candle-dark: #80571a;     /* 5.7:1 on parchment-base (WCAG AA) */
   --color-ember-orange: #e0702a;
   --color-ember-deep: #b8521a;
 

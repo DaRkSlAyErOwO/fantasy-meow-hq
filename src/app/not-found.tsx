@@ -42,7 +42,7 @@ export default function NotFound() {
         >
           <div style={{ display: 'inline-flex', marginBottom: '14px' }}>
             <span
-              className="font-pixel pixel-box-sm"
+              className="font-label pixel-box-sm"
               style={{
                 fontSize: '11px',
                 color: 'var(--color-candle-dark)',

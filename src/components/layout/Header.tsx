@@ -90,7 +90,7 @@ export const Header: React.FC = () => {
             <Link
               key={link.label}
               href={link.href}
-              className="font-pixel"
+              className="font-label"
               style={{
                 fontSize: '15px',
                 color: 'var(--color-hearth-text)',
@@ -146,7 +146,7 @@ export const Header: React.FC = () => {
             </button>
             {copied && (
               <span
-                className="font-pixel"
+                className="font-label"
                 style={{
                   position: 'absolute',
                   top: '48px',
@@ -217,7 +217,7 @@ export const Header: React.FC = () => {
               <Link
                 key={link.label}
                 href={link.href}
-                className="font-pixel"
+                className="font-label"
                 onClick={() => setMobileMenuOpen(false)}
                 style={{
                   fontSize: '16px',

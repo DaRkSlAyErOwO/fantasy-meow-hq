@@ -15,7 +15,7 @@ export const HousesIndexContent: React.FC = () => {
         <div style={{ marginBottom: '24px' }}>
           <Link
             href="/"
-            className="font-pixel"
+            className="font-label"
             style={{
               fontSize: '13px',
               color: 'var(--color-candle-dark)',
@@ -34,7 +34,7 @@ export const HousesIndexContent: React.FC = () => {
         <div style={{ maxWidth: '820px', marginBottom: '44px' }}>
           <div style={{ display: 'inline-flex', marginBottom: '10px' }}>
             <span
-              className="font-pixel pixel-box-sm"
+              className="font-label pixel-box-sm"
               style={{
                 fontSize: '11px',
                 color: 'var(--color-candle-dark)',
@@ -87,7 +87,7 @@ export const HousesIndexContent: React.FC = () => {
                   style={{ backgroundColor: accentColor }}
                 >
                   <span style={{ fontSize: '24px' }}>{house.emoji}</span>
-                  <span className="font-pixel house-motto">&ldquo;{house.motto}&rdquo;</span>
+                  <span className="font-label house-motto">&ldquo;{house.motto}&rdquo;</span>
                 </div>
 
                 <div className="house-card-body">
@@ -103,12 +103,12 @@ export const HousesIndexContent: React.FC = () => {
                   </div>
 
                   <h2 className="font-pixel house-name">{house.name}</h2>
-                  <p className="font-pixel house-vibe">{house.vibe}</p>
+                  <p className="font-label house-vibe">{house.vibe}</p>
                   <p className="font-body house-desc">{house.description}</p>
 
                   {/* Color Swatches */}
                   <div className="house-colors-row">
-                    <span className="font-pixel colors-label">Palette:</span>
+                    <span className="font-label colors-label">Palette:</span>
                     <div style={{ display: 'flex', gap: '6px' }}>
                       {house.signatureColors.map((col, idx) => (
                         <div
@@ -223,7 +223,7 @@ export const HousesIndexContent: React.FC = () => {
         }
 
         :global(.house-name) {
-          font-size: 22px;
+          font-size: 24px;
           color: var(--color-ink-primary);
           margin: 0 0 4px;
         }

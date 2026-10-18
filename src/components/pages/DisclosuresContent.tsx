@@ -14,7 +14,7 @@ export const DisclosuresContent: React.FC = () => {
         <div style={{ marginBottom: '24px' }}>
           <Link
             href="/"
-            className="font-pixel"
+            className="font-label"
             style={{
               fontSize: '13px',
               color: 'var(--color-candle-dark)',
@@ -33,7 +33,7 @@ export const DisclosuresContent: React.FC = () => {
         <div style={{ maxWidth: '820px', marginBottom: '40px' }}>
           <div style={{ display: 'inline-flex', marginBottom: '10px' }}>
             <span
-              className="font-pixel pixel-box-sm"
+              className="font-label pixel-box-sm"
               style={{
                 fontSize: '11px',
                 color: 'var(--color-candle-dark)',
@@ -77,14 +77,14 @@ export const DisclosuresContent: React.FC = () => {
         {/* Section 1: The Four Core Statements (Including Territory Fee Line) */}
         <div className="pixel-box disclosure-panel" style={{ marginBottom: '32px' }}>
           <div className="panel-header">
-            <span className="font-pixel panel-number">01</span>
-            <h2 className="font-pixel panel-title">Core Disclosures</h2>
+            <span className="font-label panel-number">01</span>
+            <h2 className="font-label panel-title">Core Disclosures</h2>
           </div>
 
           <ol className="core-list">
             {d.core.map((item, idx) => (
               <li key={idx} className="font-body core-item">
-                <span className="item-num font-pixel">{idx + 1}.</span>
+                <span className="item-num font-label">{idx + 1}.</span>
                 <span className="item-text">{item}</span>
               </li>
             ))}
@@ -94,14 +94,14 @@ export const DisclosuresContent: React.FC = () => {
         {/* Section 2: Additional Disclosures & Planned Features */}
         <div className="pixel-box disclosure-panel" style={{ marginBottom: '32px' }}>
           <div className="panel-header">
-            <span className="font-pixel panel-number">02</span>
-            <h2 className="font-pixel panel-title">Additional Statements &amp; Territory Policy</h2>
+            <span className="font-label panel-number">02</span>
+            <h2 className="font-label panel-title">Additional Statements &amp; Territory Policy</h2>
           </div>
 
           <div className="additional-grid">
             {d.additional.map((item, idx) => (
               <div key={idx} className="additional-card">
-                <span className="font-pixel add-bullet" aria-hidden="true">❖</span>
+                <span className="font-label add-bullet" aria-hidden="true">❖</span>
                 <p className="font-body add-text">{item}</p>
               </div>
             ))}
@@ -111,18 +111,18 @@ export const DisclosuresContent: React.FC = () => {
         {/* Section 3: Word Watchlist & Lore Rule */}
         <div className="pixel-box disclosure-panel" style={{ marginBottom: '60px' }}>
           <div className="panel-header">
-            <span className="font-pixel panel-number">03</span>
-            <h2 className="font-pixel panel-title">Word Watchlist &amp; Lore Rule</h2>
+            <span className="font-label panel-number">03</span>
+            <h2 className="font-label panel-title">Word Watchlist &amp; Lore Rule</h2>
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
             <div className="watchlist-box">
-              <span className="font-pixel box-tag">Public Copy Rule</span>
+              <span className="font-label box-tag">Public Copy Rule</span>
               <p className="font-body box-body">{d.wordWatchlist}</p>
             </div>
 
             <div className="watchlist-box">
-              <span className="font-pixel box-tag">Lore Principle</span>
+              <span className="font-label box-tag">Lore Principle</span>
               <p className="font-body box-body">{d.loreRule}</p>
             </div>
           </div>

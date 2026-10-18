@@ -12,13 +12,14 @@ export const ClassesSection: React.FC = () => {
   const classesList = content.classes;
   const activeClass = classesList[hoveredIndex ?? selectedClassIndex];
 
-  // Fanned angles and offsets for desktop card hand (compact to fit comfortably above fold at 1366x768)
+  // Fanned angles and offsets for desktop card hand. Cards are spread (not overlapped) and only
+  // gently rotated so every card's lore quote stays fully readable, lifted or not.
   const fanStyles = [
-    { rotate: -8, translateY: 10, translateX: -20, zIndex: 1 },
-    { rotate: -4, translateY: 4, translateX: -10, zIndex: 2 },
+    { rotate: -6, translateY: 12, translateX: -28, zIndex: 1 },
+    { rotate: -3, translateY: 4, translateX: -14, zIndex: 2 },
     { rotate: 0, translateY: 0, translateX: 0, zIndex: 3 },
-    { rotate: 4, translateY: 4, translateX: 10, zIndex: 4 },
-    { rotate: 8, translateY: 10, translateX: 20, zIndex: 5 },
+    { rotate: 3, translateY: 4, translateX: 14, zIndex: 4 },
+    { rotate: 6, translateY: 12, translateX: 28, zIndex: 5 },
   ];
 
   return (
@@ -28,9 +29,10 @@ export const ClassesSection: React.FC = () => {
         <div style={{ textAlign: 'center', maxWidth: '780px', margin: '0 auto 20px' }}>
           <div style={{ display: 'inline-flex', marginBottom: '8px' }}>
             <span
-              className="font-pixel pixel-box-sm"
+              className="font-body pixel-box-sm"
               style={{
-                fontSize: '11px',
+                fontSize: '12px',
+                fontWeight: 700,
                 color: 'var(--color-candle-dark)',
                 textTransform: 'uppercase',
                 letterSpacing: '0.1em',
@@ -104,7 +106,7 @@ export const ClassesSection: React.FC = () => {
                   <div className="pixel-box class-card-inner">
                     {/* Top Neutral Shared Badge (Ink on parchment, gold outline) */}
                     <div className="neutral-badge-row">
-                      <span className="font-pixel neutral-class-badge">
+                      <span className="font-body neutral-class-badge">
                         <span aria-hidden="true" style={{ fontSize: '13px' }}>{cls.discordEmoji}</span>
                         <span>{cls.role}</span>
                       </span>
@@ -123,7 +125,7 @@ export const ClassesSection: React.FC = () => {
 
                     {/* Class Name & Lore Line */}
                     <div className="class-card-footer">
-                      <h3 className="font-pixel class-title">{cls.name}</h3>
+                      <h3 className="font-body class-title">{cls.name}</h3>
                       <p className="font-body class-lore-line">&ldquo;{cls.loreLine}&rdquo;</p>
                     </div>
                   </div>
@@ -142,7 +144,7 @@ export const ClassesSection: React.FC = () => {
                 <h3 className="font-pixel" style={{ fontSize: '26px', color: 'var(--color-ink-primary)', margin: 0 }}>
                   {activeClass.name}
                 </h3>
-                <span className="font-pixel neutral-class-badge" style={{ marginTop: '4px' }}>
+                <span className="font-body neutral-class-badge" style={{ marginTop: '4px' }}>
                   {activeClass.role}
                 </span>
               </div>
@@ -173,16 +175,16 @@ export const ClassesSection: React.FC = () => {
 
             <div className="dossier-meta-row">
               <div className="meta-pill">
-                <span className="font-pixel meta-label">Kit:</span>
+                <span className="font-body meta-label">Kit:</span>
                 <span className="font-body meta-val">{activeClass.silhouetteKit}</span>
               </div>
               <div className="meta-pill">
-                <span className="font-pixel meta-label">Favored Ground:</span>
+                <span className="font-body meta-label">Favored Ground:</span>
                 <span className="font-body meta-val">{activeClass.landAffinity}</span>
               </div>
               {activeClass.signatureAbility && (
                 <div className="meta-pill">
-                  <span className="font-pixel meta-label">Ability ({activeClass.signatureAbility.name}):</span>
+                  <span className="font-body meta-label">Ability ({activeClass.signatureAbility.name}):</span>
                   <span className="font-body meta-val">{activeClass.signatureAbility.description}</span>
                 </div>
               )}
@@ -217,7 +219,7 @@ export const ClassesSection: React.FC = () => {
 
         :global(.class-card-item) {
           width: 155px;
-          margin: 0 -12px;
+          margin: 0 -2px;
           cursor: pointer;
           transform: translateY(var(--fan-ty)) translateX(var(--fan-tx)) rotate(var(--fan-rotate));
           z-index: var(--fan-z);
@@ -261,7 +263,8 @@ export const ClassesSection: React.FC = () => {
           border: 2px solid var(--color-candle-gold);
           border-radius: 4px;
           padding: 2px 6px;
-          font-size: 10px;
+          font-size: 11px;
+          font-weight: 700;
           letter-spacing: 0.04em;
           text-transform: uppercase;
         }
@@ -286,13 +289,13 @@ export const ClassesSection: React.FC = () => {
         }
 
         :global(.class-title) {
-          font-size: 15px;
+          font-size: 16px;
           color: var(--color-ink-primary);
           margin: 0 0 2px;
         }
 
         :global(.class-lore-line) {
-          font-size: 11.5px;
+          font-size: 12.5px;
           color: var(--color-ink-secondary);
           font-style: italic;
           line-height: 1.3;
