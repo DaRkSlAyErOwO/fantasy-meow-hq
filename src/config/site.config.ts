@@ -22,6 +22,9 @@ export const siteConfig = {
     status: "Coming soon",
     chain: "TBA",
     supply: "TBA",
+    // Headline values in the Mint section; per-phase values live under `phases`
+    price: "TBA",
+    perWallet: "TBA",
     teamReserve: "TBA",
     reveal: "TBA",
     date: "TBA",

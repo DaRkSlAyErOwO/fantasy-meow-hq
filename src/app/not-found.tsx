@@ -35,8 +35,8 @@ export default function NotFound() {
             textAlign: 'center',
             padding: '40px 32px',
             borderRadius: '8px',
-            border: '3px solid #2b1e16',
-            boxShadow: '5px 5px 0 #2b1e16',
+            border: '3px solid var(--color-ink-primary)',
+            boxShadow: '5px 5px 0 var(--color-ink-primary)',
             backgroundColor: 'var(--color-parchment-card)',
           }}
         >

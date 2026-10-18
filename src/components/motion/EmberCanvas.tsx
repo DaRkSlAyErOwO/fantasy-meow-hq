@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef } from 'react';
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 
 interface Particle {
   x: number;
@@ -18,8 +19,12 @@ interface Particle {
 
 export const EmberCanvas: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const reducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
+    // Drifting particles are pure decoration: skip them entirely under reduced motion
+    if (reducedMotion) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext('2d');
@@ -34,8 +39,9 @@ export const EmberCanvas: React.FC = () => {
     // Mouse coordinates for desktop wind deflection (tilt max 4 deg equivalent)
     const mouse = { x: -1000, y: -1000, isDesktop: false };
 
+    const desktopQuery = window.matchMedia('(min-width: 768px) and (pointer: fine)');
     const checkDesktop = () => {
-      mouse.isDesktop = window.innerWidth >= 768 && window.matchMedia('(pointer: fine)').matches;
+      mouse.isDesktop = desktopQuery.matches;
     };
     checkDesktop();
 
@@ -53,10 +59,10 @@ export const EmberCanvas: React.FC = () => {
 
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('mouseleave', handleMouseLeave);
-    window.addEventListener('resize', checkDesktop);
 
     const handleResize = () => {
-      if (!canvas || !canvas.parentElement) return;
+      checkDesktop();
+      if (!canvas.parentElement) return;
       width = canvas.width = canvas.parentElement.clientWidth;
       height = canvas.height = canvas.parentElement.clientHeight;
     };
@@ -163,9 +169,8 @@ export const EmberCanvas: React.FC = () => {
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mouseleave', handleMouseLeave);
-      window.removeEventListener('resize', checkDesktop);
     };
-  }, []);
+  }, [reducedMotion]);
 
   return (
     <canvas

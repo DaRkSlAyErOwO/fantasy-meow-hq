@@ -1,7 +1,6 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
 import { content } from '@/config/content';
 
 export const RoadmapSection: React.FC = () => {
@@ -90,21 +89,8 @@ export const RoadmapSection: React.FC = () => {
         {/* Footnote */}
         <div className="roadmap-footnote-box">
           <p className="font-body" style={{ margin: 0, fontSize: '13.5px', color: 'var(--color-ink-muted)', fontStyle: 'italic', textAlign: 'center' }}>
-            Plans can change as we build and test. Nothing here is a promise of value.
+            {content.roadmap.footnote}
           </p>
-          <div style={{ textAlign: 'center', marginTop: '12px' }}>
-            <Link
-              href="/#roadmap"
-              className="font-label"
-              style={{
-                fontSize: '13px',
-                color: 'var(--color-candle-dark)',
-                textDecoration: 'underline',
-              }}
-            >
-              View detailed roadmap documentation &rarr;
-            </Link>
-          </div>
         </div>
       </div>
 
@@ -128,8 +114,8 @@ export const RoadmapSection: React.FC = () => {
           background-color: var(--color-parchment-card);
           padding: 24px;
           border-radius: 8px;
-          border: 3px solid #2b1e16;
-          box-shadow: 4px 4px 0 #2b1e16;
+          border: 3px solid var(--color-ink-primary);
+          box-shadow: 4px 4px 0 var(--color-ink-primary);
           display: flex;
           flex-direction: column;
           gap: 14px;
@@ -138,7 +124,7 @@ export const RoadmapSection: React.FC = () => {
 
         :global(.quest-entry-card:hover) {
           transform: translateY(-3px);
-          box-shadow: 6px 6px 0 #2b1e16;
+          box-shadow: 6px 6px 0 var(--color-ink-primary);
         }
 
         :global(.quest-header) {

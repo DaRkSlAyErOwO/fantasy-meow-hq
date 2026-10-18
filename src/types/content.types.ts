@@ -10,7 +10,6 @@ export interface HouseRecord {
   discordChannel: string;
   denGreeting?: string;
   atlasAffinity?: string;
-  art: string;
   webArt500: string;
   webArt1000: string;
   altText: string;
@@ -29,7 +28,6 @@ export interface ClassRecord {
   };
   landAffinity: string;
   discordEmoji?: string;
-  art: string;
   webArt500: string;
   webArt1000: string;
   altText: string;

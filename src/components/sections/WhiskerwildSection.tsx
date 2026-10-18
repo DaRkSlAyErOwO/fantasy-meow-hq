@@ -7,7 +7,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { content } from '@/config/content';
 
 export const WhiskerwildSection: React.FC = () => {
-  const containerRef = useRef<HTMLDivElement | null>(null);
   const pinStageRef = useRef<HTMLDivElement | null>(null);
   const para1Ref = useRef<HTMLParagraphElement | null>(null);
   const para2Ref = useRef<HTMLParagraphElement | null>(null);
@@ -15,93 +14,39 @@ export const WhiskerwildSection: React.FC = () => {
   const cardsRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-
-    // Check reduced motion
-    const rm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const isDesktop = window.innerWidth >= 1024;
-
-    // Requirement 7: Reduced motion: no pinning!
-    if (rm || !isDesktop) {
-      return;
-    }
-
     gsap.registerPlugin(ScrollTrigger);
-
     const mm = gsap.matchMedia();
 
-    mm.add('(min-width: 769px)', () => {
-      if (pinStageRef.current) {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: pinStageRef.current,
-            start: 'top top+=74',
-            end: '+=700',
-            pin: true,
-            scrub: 0.5,
-            anticipatePin: 1,
-          },
-        });
+    // Desktop only, and never under reduced motion: pin the storybook panel and reveal it as you scroll.
+    // gsap.matchMedia re-evaluates on resize and reverts everything when the query stops matching.
+    mm.add('(min-width: 1024px) and (prefers-reduced-motion: no-preference)', () => {
+      if (!pinStageRef.current) return;
 
-        // First paragraph is at full ink on arrival; only later paragraphs reveal
-        if (para1Ref.current) {
-          gsap.set(para1Ref.current, { opacity: 1, y: 0, color: '#2b1e16' });
-        }
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: pinStageRef.current,
+          start: 'top top+=74',
+          end: '+=700',
+          pin: true,
+          scrub: 0.5,
+          anticipatePin: 1,
+        },
+      });
 
-        if (para2Ref.current && para3Ref.current) {
-          tl.fromTo(
-            para2Ref.current,
-            { opacity: 0.35, y: 14 },
-            { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }
-          )
-            .fromTo(
-              para3Ref.current,
-              { opacity: 0.35, y: 14 },
-              { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' },
-              '+=0.1'
-            );
-        }
+      // First paragraph is at full ink on arrival; only later paragraphs reveal
+      if (para1Ref.current) gsap.set(para1Ref.current, { opacity: 1, y: 0 });
 
-        if (cardsRef.current) {
-          tl.fromTo(
-            cardsRef.current,
-            { opacity: 0.5, y: 12 },
-            { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' },
-            '+=0.1'
-          );
-        }
+      if (para2Ref.current && para3Ref.current) {
+        tl.fromTo(para2Ref.current, { opacity: 0.35, y: 14 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }).fromTo(
+          para3Ref.current,
+          { opacity: 0.35, y: 14 },
+          { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' },
+          '+=0.1'
+        );
       }
-    });
 
-    mm.add('(max-width: 768px)', () => {
-      if (pinStageRef.current) {
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: pinStageRef.current,
-            start: 'top 85%',
-            end: 'top 25%',
-            scrub: 0.5,
-          },
-        });
-
-        // Mobile: First paragraph at full ink on arrival, only later paragraphs reveal
-        if (para1Ref.current) {
-          gsap.set(para1Ref.current, { opacity: 1, y: 0, color: '#2b1e16' });
-        }
-
-        if (para2Ref.current && para3Ref.current) {
-          tl.fromTo(
-            para2Ref.current,
-            { opacity: 0.4, y: 10 },
-            { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }
-          )
-            .fromTo(
-              para3Ref.current,
-              { opacity: 0.4, y: 10 },
-              { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' },
-              '+=0.1'
-            );
-        }
+      if (cardsRef.current) {
+        tl.fromTo(cardsRef.current, { opacity: 0.5, y: 12 }, { opacity: 1, y: 0, duration: 0.6, ease: 'power2.out' }, '+=0.1');
       }
     });
 
@@ -109,7 +54,7 @@ export const WhiskerwildSection: React.FC = () => {
   }, []);
 
   return (
-    <section id="whiskerwild" ref={containerRef} className="whiskerwild-root">
+    <section id="whiskerwild" className="whiskerwild-root">
       <span id="world" style={{ position: 'absolute', top: 0 }} aria-hidden="true" />
       {/* 
         1. HERO -> PARCHMENT TRANSITION:
@@ -215,7 +160,7 @@ export const WhiskerwildSection: React.FC = () => {
                 {content.whatIsThis.map((item) => (
                   <div key={item.number} className="pixel-box-sm storybook-beat-card">
                     <span className="font-body beat-number">{item.number}</span>
-                    <h3 className="font-body beat-title">{item.title || item.ClassTitle}</h3>
+                    <h3 className="font-body beat-title">{item.title}</h3>
                     <p className="font-body beat-text">{item.text}</p>
                   </div>
                 ))}
@@ -377,8 +322,8 @@ export const WhiskerwildSection: React.FC = () => {
           height: 280px;
           border-radius: 6px;
           overflow: hidden;
-          border: 3px solid #2b1e16;
-          box-shadow: 4px 4px 0 #2b1e16;
+          border: 3px solid var(--color-ink-primary);
+          box-shadow: 4px 4px 0 var(--color-ink-primary);
           background-color: var(--color-hearth-soot);
         }
 
@@ -401,7 +346,7 @@ export const WhiskerwildSection: React.FC = () => {
         /* Full ink #2b1e16 at rest (opacity 1) */
         :global(.narrative-para) {
           font-size: 15.5px;
-          color: #2b1e16 !important;
+          color: var(--color-ink-primary) !important;
           opacity: 1;
           line-height: 1.62;
           margin: 0;

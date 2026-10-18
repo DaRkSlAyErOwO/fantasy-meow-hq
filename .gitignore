@@ -62,3 +62,7 @@ Thumbs.db
 *.njsproj
 *.sln
 *.sw?
+
+# Claude Code handoff pack (local reference only)
+fantasy-meows-claude-handoff/
+fantasy-meows-claude-handoff.zip

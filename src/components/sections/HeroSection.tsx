@@ -80,7 +80,7 @@ export const HeroSection: React.FC = () => {
               margin: 0,
             }}
           >
-            Ordinary cats. Extraordinary worlds.
+            {content.hero.subheading}
           </p>
 
           {/* Body Text (Clean body font with natural shadow, seamlessly blending over horizontal fade) */}
@@ -249,7 +249,7 @@ export const HeroSection: React.FC = () => {
           z-index: 50;
           display: flex;
           flex-direction: column;
-          justifyContent: center;
+          justify-content: center;
         }
 
         :global(.hero-text-stack) {
@@ -257,6 +257,22 @@ export const HeroSection: React.FC = () => {
           display: flex;
           flex-direction: column;
           gap: 12px;
+        }
+
+        /* First-visit intro: copy waits for the scene, then rises in after the front layer */
+        :global(html[data-intro='typing'] .hero-text-stack) {
+          opacity: 0;
+        }
+
+        :global(html[data-intro='reveal'] .hero-text-stack) {
+          animation: heroTextIn 0.5s ease-out 0.4s both;
+        }
+
+        @keyframes heroTextIn {
+          from {
+            opacity: 0;
+            transform: translateY(12px);
+          }
         }
 
         :global(.hero-cta-cluster) {
@@ -332,7 +348,7 @@ export const HeroSection: React.FC = () => {
           :global(.hero-medallion-wrap) {
             width: 100%;
             display: flex;
-            justifyContent: center;
+            justify-content: center;
           }
 
           :global(.hero-medallion-wrap .pixel-medallion) {

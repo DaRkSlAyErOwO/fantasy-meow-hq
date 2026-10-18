@@ -165,8 +165,8 @@ export const FaqSection: React.FC = () => {
           background-color: var(--color-parchment-card);
           padding: 20px 16px;
           border-radius: 8px;
-          border: 3px solid #2b1e16;
-          box-shadow: 4px 4px 0 #2b1e16;
+          border: 3px solid var(--color-ink-primary);
+          box-shadow: 4px 4px 0 var(--color-ink-primary);
           position: sticky;
           top: 104px;
         }
@@ -177,8 +177,8 @@ export const FaqSection: React.FC = () => {
           height: 120px;
           border-radius: 6px;
           overflow: hidden;
-          border: 2px solid #2b1e16;
-          box-shadow: 2px 2px 0 #2b1e16;
+          border: 2px solid var(--color-ink-primary);
+          box-shadow: 2px 2px 0 var(--color-ink-primary);
           background-color: var(--color-hearth-soot);
           margin-bottom: 12px;
         }
@@ -190,13 +190,6 @@ export const FaqSection: React.FC = () => {
           display: flex;
           flex-direction: column;
           gap: 2px;
-        }
-
-        :global(.speaker-sub) {
-          font-size: 10.5px;
-          color: var(--color-candle-dark);
-          letter-spacing: 0.05em;
-          text-transform: uppercase;
         }
 
         :global(.speaker-quote) {
@@ -217,15 +210,15 @@ export const FaqSection: React.FC = () => {
         :global(.dialogue-box-item) {
           background-color: var(--color-parchment-card);
           border-radius: 6px;
-          border: 3px solid #2b1e16;
-          box-shadow: 3px 3px 0 #2b1e16;
+          border: 3px solid var(--color-ink-primary);
+          box-shadow: 3px 3px 0 var(--color-ink-primary);
           overflow: hidden;
           transition: transform 0.15s ease, box-shadow 0.15s ease;
         }
 
         :global(.dialogue-box-item:hover) {
           transform: translateY(-2px);
-          box-shadow: 5px 5px 0 #2b1e16;
+          box-shadow: 5px 5px 0 var(--color-ink-primary);
         }
 
         :global(.dialogue-question-btn) {

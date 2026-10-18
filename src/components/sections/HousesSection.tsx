@@ -1,26 +1,22 @@
 'use client';
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'motion/react';
 import { content } from '@/config/content';
 import { HouseWeatherCanvas } from '@/components/motion/HouseWeatherCanvas';
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
+
+const houseColor = (slug: string) => `var(--house-${slug})`;
+const onHouseColor = (slug: string) => `var(--house-${slug}-on)`;
 
 export const HousesSection: React.FC = () => {
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [reducedMotion, setReducedMotion] = useState(false);
+  const reducedMotion = usePrefersReducedMotion();
   const tabListRef = useRef<HTMLDivElement | null>(null);
 
   const activeHouse = content.houses[selectedIndex];
-
-  useEffect(() => {
-    const rmQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setReducedMotion(rmQuery.matches);
-    const handleRmChange = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
-    rmQuery.addEventListener('change', handleRmChange);
-    return () => rmQuery.removeEventListener('change', handleRmChange);
-  }, []);
 
   // Keyboard navigation for party-select tabs (Left/Right/Home/End)
   const handleKeyDown = (e: React.KeyboardEvent, currentIndex: number) => {
@@ -47,25 +43,6 @@ export const HousesSection: React.FC = () => {
       if (buttons && buttons[nextIndex]) {
         buttons[nextIndex].focus();
       }
-    }
-  };
-
-  // Color mapping per house for the ribbon tabs
-  const getHouseColor = (slug: string) => {
-    switch (slug) {
-      case 'circle-of-whisk':
-        return '#e8b64c'; // Candle-gold
-      case 'pawguard':
-        return '#4a6a8f'; // Steel blue
-      case 'rootpads':
-        return '#5d7a3a'; // Moss green
-      case 'emberkin':
-        return '#e0702a'; // Ember orange
-      case 'rimewhisper':
-        return '#6fa8d6'; // Glacier blue
-      case 'voidpurr':
-      default:
-        return '#9a7ae0'; // Starlight violet
     }
   };
 
@@ -154,7 +131,6 @@ export const HousesSection: React.FC = () => {
         >
           {content.houses.map((house, idx) => {
             const isSelected = idx === selectedIndex;
-            const houseColor = getHouseColor(house.slug);
 
             return (
               <button
@@ -168,20 +144,20 @@ export const HousesSection: React.FC = () => {
                 onKeyDown={(e) => handleKeyDown(e, idx)}
                 className="pixel-btn house-ribbon-tab"
                 style={{
-                  backgroundColor: isSelected ? houseColor : 'var(--color-hearth-soot)',
-                  color: isSelected ? 'var(--color-ink-primary)' : 'var(--color-hearth-text)',
+                  backgroundColor: isSelected ? houseColor(house.slug) : 'var(--color-hearth-soot)',
+                  color: isSelected ? onHouseColor(house.slug) : 'var(--color-hearth-text)',
                   borderWidth: '3px 3px 3px 6px',
                   borderStyle: 'solid',
-                  borderTopColor: isSelected ? '#2b1e16' : 'var(--color-hearth-border)',
-                  borderRightColor: isSelected ? '#2b1e16' : 'var(--color-hearth-border)',
-                  borderBottomColor: isSelected ? '#2b1e16' : 'var(--color-hearth-border)',
-                  borderLeftColor: houseColor,
+                  borderTopColor: isSelected ? 'var(--color-ink-primary)' : 'var(--color-hearth-border)',
+                  borderRightColor: isSelected ? 'var(--color-ink-primary)' : 'var(--color-hearth-border)',
+                  borderBottomColor: isSelected ? 'var(--color-ink-primary)' : 'var(--color-hearth-border)',
+                  borderLeftColor: houseColor(house.slug),
                   padding: '10px 18px',
                   fontSize: '14px',
                   display: 'inline-flex',
                   alignItems: 'center',
                   gap: '8px',
-                  boxShadow: isSelected ? '4px 4px 0 #2b1e16' : '2px 2px 0 var(--color-ink-primary)',
+                  boxShadow: isSelected ? '4px 4px 0 var(--color-ink-primary)' : '2px 2px 0 var(--color-ink-primary)',
                   transform: isSelected ? 'translate(-2px, -2px)' : 'none',
                 }}
               >
@@ -228,8 +204,8 @@ export const HousesSection: React.FC = () => {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                border: '4px solid #2b1e16',
-                boxShadow: '6px 6px 0 #2b1e16',
+                border: '4px solid var(--color-ink-primary)',
+                boxShadow: '6px 6px 0 var(--color-ink-primary)',
               }}
             >
               {/* Per-House Weather Canvas (Candle flicker, shield glint, spores, embers, snow, starfield) */}
@@ -251,7 +227,7 @@ export const HousesSection: React.FC = () => {
                   }}
                 >
                   <Image
-                    src={activeHouse.webArt500 || activeHouse.art || '/assets/web/brand/logo-crest-square.webp'}
+                    src={activeHouse.webArt500}
                     alt={activeHouse.altText || `${activeHouse.name} House Crest`}
                     width={320}
                     height={320}
@@ -281,7 +257,7 @@ export const HousesSection: React.FC = () => {
                   borderTopColor: 'var(--color-ink-primary)',
                   borderRightColor: 'var(--color-ink-primary)',
                   borderBottomColor: 'var(--color-ink-primary)',
-                  borderLeftColor: getHouseColor(activeHouse.slug),
+                  borderLeftColor: houseColor(activeHouse.slug),
                   boxShadow: '2px 2px 0 var(--color-ink-primary)',
                   zIndex: 4,
                 }}
@@ -306,8 +282,8 @@ export const HousesSection: React.FC = () => {
             className="pixel-box dossier-panel"
             style={{
               backgroundColor: 'var(--color-parchment-card)',
-              border: '3px solid #2b1e16',
-              boxShadow: '4px 4px 0 #2b1e16',
+              border: '3px solid var(--color-ink-primary)',
+              boxShadow: '4px 4px 0 var(--color-ink-primary)',
               padding: '34px',
               borderRadius: '8px',
               display: 'flex',
@@ -415,7 +391,6 @@ export const HousesSection: React.FC = () => {
                   fontSize: '14px',
                   fontWeight: 700,
                   color: 'var(--color-ink-primary)',
-                  marginBottom: '8px',
                   margin: 0,
                 }}
               >

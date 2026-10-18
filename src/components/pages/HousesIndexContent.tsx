@@ -78,13 +78,14 @@ export const HousesIndexContent: React.FC = () => {
         {/* Six Houses Grid */}
         <div className="houses-grid">
           {houses.map((house) => {
-            const accentColor = house.signatureColors[0]?.hex || 'var(--color-candle-gold)';
+            const accentColor = `var(--house-${house.slug})`;
+            const onAccent = `var(--house-${house.slug}-on)`;
             return (
               <div key={house.slug} className="pixel-box house-card">
                 {/* Card Header with Emoji and Accent Ribbon */}
                 <div
                   className="house-card-ribbon"
-                  style={{ backgroundColor: accentColor }}
+                  style={{ backgroundColor: accentColor, color: onAccent }}
                 >
                   <span style={{ fontSize: '24px' }}>{house.emoji}</span>
                   <span className="font-label house-motto">&ldquo;{house.motto}&rdquo;</span>
@@ -94,7 +95,7 @@ export const HousesIndexContent: React.FC = () => {
                   {/* Pixel Portrait */}
                   <div className="house-card-art-wrap">
                     <Image
-                      src={house.webArt500 || house.art}
+                      src={house.webArt500}
                       alt={house.altText}
                       fill
                       className="pixelated"
@@ -119,8 +120,8 @@ export const HousesIndexContent: React.FC = () => {
                             height: '20px',
                             borderRadius: '3px',
                             backgroundColor: col.hex,
-                            border: '1.5px solid #2b1e16',
-                            boxShadow: '1px 1px 0 #2b1e16',
+                            border: '1.5px solid var(--color-ink-primary)',
+                            boxShadow: '1px 1px 0 var(--color-ink-primary)',
                           }}
                         />
                       ))}
@@ -184,8 +185,8 @@ export const HousesIndexContent: React.FC = () => {
           display: flex;
           flex-direction: column;
           border-radius: 8px;
-          border: 3px solid #2b1e16;
-          box-shadow: 4px 4px 0 #2b1e16;
+          border: 3px solid var(--color-ink-primary);
+          box-shadow: 4px 4px 0 var(--color-ink-primary);
           overflow: hidden;
           background-color: var(--color-parchment-card);
         }
@@ -195,12 +196,11 @@ export const HousesIndexContent: React.FC = () => {
           align-items: center;
           justify-content: space-between;
           padding: 10px 16px;
-          border-bottom: 2px solid #2b1e16;
+          border-bottom: 2px solid var(--color-ink-primary);
         }
 
         :global(.house-motto) {
           font-size: 13px;
-          color: #2b1e16;
           font-style: italic;
         }
 
@@ -217,7 +217,7 @@ export const HousesIndexContent: React.FC = () => {
           height: 190px;
           border-radius: 6px;
           overflow: hidden;
-          border: 2px solid #2b1e16;
+          border: 2px solid var(--color-ink-primary);
           background-color: var(--color-hearth-soot);
           margin-bottom: 16px;
         }

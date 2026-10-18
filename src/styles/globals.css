@@ -1,36 +1,6 @@
 @import "tailwindcss";
 @import "./tokens.css";
 
-@theme {
-  --color-ink-primary: var(--color-ink-primary);
-  --color-ink-secondary: var(--color-ink-secondary);
-  --color-ink-muted: var(--color-ink-muted);
-  --color-parchment-base: var(--color-parchment-base);
-  --color-parchment-card: var(--color-parchment-card);
-  --color-parchment-border: var(--color-parchment-border);
-  --color-hearth-charcoal: var(--color-hearth-charcoal);
-  --color-hearth-soot: var(--color-hearth-soot);
-  --color-hearth-border: var(--color-hearth-border);
-  --color-hearth-text: var(--color-hearth-text);
-  --color-hearth-muted: var(--color-hearth-muted);
-  --color-candle-gold: var(--color-candle-gold);
-  --color-candle-glow: var(--color-candle-glow);
-  --color-candle-dark: var(--color-candle-dark);
-  --color-ember-orange: var(--color-ember-orange);
-  --color-ember-deep: var(--color-ember-deep);
-
-  --color-house-whisk: var(--house-circle-of-whisk);
-  --color-house-pawguard: var(--house-pawguard);
-  --color-house-rootpads: var(--house-rootpads);
-  --color-house-emberkin: var(--house-emberkin);
-  --color-house-rimewhisper: var(--house-rimewhisper);
-  --color-house-voidpurr: var(--house-voidpurr);
-
-  --font-pixel: var(--font-pixel);
-  --font-body: var(--font-body);
-  --font-ui: var(--font-ui);
-}
-
 /* --- Base & Reset --- */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -92,10 +62,6 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 0.02em;
 }
 
-.font-ui {
-  font-family: var(--font-ui);
-}
-
 /* --- Soft Gold Title Glow --- */
 .title-glow {
   text-shadow: 0 0 28px rgba(232, 182, 76, 0.45), 0 3px 6px rgba(0, 0, 0, 0.85);
@@ -107,13 +73,6 @@ h1, h2, h3, h4, h5, h6 {
   box-shadow: 4px 4px 0 var(--color-ink-primary);
   background-color: var(--color-parchment-card);
   color: var(--color-ink-primary);
-}
-
-.pixel-box-dark {
-  border: 3px solid var(--color-ink-primary);
-  box-shadow: 4px 4px 0 var(--color-ink-primary);
-  background-color: var(--color-hearth-soot);
-  color: var(--color-hearth-text);
 }
 
 .pixel-box-sm {
@@ -149,20 +108,6 @@ h1, h2, h3, h4, h5, h6 {
 .pixel-btn:active {
   transform: translate(2px, 2px);
   box-shadow: 2px 2px 0 var(--color-ink-primary);
-}
-
-.pixel-btn-disabled {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-ui);
-  font-weight: 600;
-  border: 2px dashed var(--color-hearth-border);
-  border-radius: 4px;
-  cursor: not-allowed;
-  opacity: 0.65;
-  background-color: transparent;
-  color: var(--color-hearth-muted);
 }
 
 /* Round Medallion Primary CTA with ornamental pixel rim */
@@ -282,22 +227,6 @@ h1, h2, h3, h4, h5, h6 {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
-  }
-}
-
-/* Eliminate layout shift on mobile hero */
-@media (max-width: 640px) {
-  .hero-section-root {
-    display: flex !important;
-    flex-direction: column !important;
-    min-height: auto !important;
-  }
-  .hero-art-wrapper {
-    position: relative !important;
-    width: 100% !important;
-    height: 38vh !important;
-    min-height: 250px !important;
-    max-height: 320px !important;
   }
 }
 

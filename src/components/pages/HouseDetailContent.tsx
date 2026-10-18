@@ -16,7 +16,8 @@ export const HouseDetailContent: React.FC<HouseDetailContentProps> = ({
   prevHouse,
   nextHouse,
 }) => {
-  const primaryAccent = house.signatureColors[0]?.hex || 'var(--color-candle-gold)';
+  const accentColor = `var(--house-${house.slug})`;
+  const onAccent = `var(--house-${house.slug}-on)`;
 
   return (
     <main className="house-detail-root" id="main-content">
@@ -52,7 +53,7 @@ export const HouseDetailContent: React.FC<HouseDetailContentProps> = ({
           {/* House Color Top Header Bar */}
           <div
             className="house-color-bar"
-            style={{ backgroundColor: primaryAccent }}
+            style={{ backgroundColor: accentColor, color: onAccent }}
           >
             <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
               <span style={{ fontSize: '24px' }}>{house.emoji}</span>
@@ -68,7 +69,7 @@ export const HouseDetailContent: React.FC<HouseDetailContentProps> = ({
             <div className="house-portrait-column">
               <div className="house-portrait-card">
                 <Image
-                  src={house.webArt1000 || house.art}
+                  src={house.webArt1000}
                   alt={house.altText}
                   fill
                   priority
@@ -246,8 +247,8 @@ export const HouseDetailContent: React.FC<HouseDetailContentProps> = ({
         :global(.house-hero-panel) {
           background-color: var(--color-parchment-card);
           border-radius: 8px;
-          border: 3px solid #2b1e16;
-          box-shadow: 5px 5px 0 #2b1e16;
+          border: 3px solid var(--color-ink-primary);
+          box-shadow: 5px 5px 0 var(--color-ink-primary);
           overflow: hidden;
           margin-bottom: 32px;
         }
@@ -257,12 +258,11 @@ export const HouseDetailContent: React.FC<HouseDetailContentProps> = ({
           justify-content: space-between;
           align-items: center;
           padding: 12px 24px;
-          border-bottom: 2px solid #2b1e16;
+          border-bottom: 2px solid var(--color-ink-primary);
         }
 
         :global(.house-crest-tag) {
           font-size: 12px;
-          color: #2b1e16;
           text-transform: uppercase;
           letter-spacing: 0.08em;
           font-weight: 700;
@@ -270,9 +270,9 @@ export const HouseDetailContent: React.FC<HouseDetailContentProps> = ({
 
         :global(.house-motto-pill) {
           font-size: 13.5px;
-          color: #2b1e16;
+          color: var(--color-ink-primary);
           font-style: italic;
-          background-color: rgba(255, 255, 255, 0.4);
+          background-color: var(--color-parchment-card);
           padding: 4px 12px;
           border-radius: 4px;
           border: 1px solid rgba(43, 30, 22, 0.2);
@@ -297,8 +297,8 @@ export const HouseDetailContent: React.FC<HouseDetailContentProps> = ({
           aspect-ratio: 1;
           border-radius: 6px;
           overflow: hidden;
-          border: 3px solid #2b1e16;
-          box-shadow: 3px 3px 0 #2b1e16;
+          border: 3px solid var(--color-ink-primary);
+          box-shadow: 3px 3px 0 var(--color-ink-primary);
           background-color: var(--color-hearth-soot);
         }
 
@@ -395,8 +395,8 @@ export const HouseDetailContent: React.FC<HouseDetailContentProps> = ({
           width: 28px;
           height: 28px;
           border-radius: 4px;
-          border: 2px solid #2b1e16;
-          box-shadow: 1px 1px 0 #2b1e16;
+          border: 2px solid var(--color-ink-primary);
+          box-shadow: 1px 1px 0 var(--color-ink-primary);
           flex-shrink: 0;
         }
 

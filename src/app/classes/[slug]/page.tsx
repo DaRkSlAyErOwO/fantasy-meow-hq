@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: ClassPageProps): Promise<Meta
       url: `${siteConfig.SITE_URL}/classes/${cls.slug}/`,
       images: [
         {
-          url: cls.webArt1000 || cls.art,
+          url: cls.webArt1000,
           width: 1000,
           height: 1000,
           alt: cls.altText,

@@ -1,228 +1,179 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { EmberCanvas } from './EmberCanvas';
 
+// Back to front. `scroll` = scroll parallax factor, `pointer` = max pointer offset (px),
+// `bleed` = how far the layer extends past the frame so offsets never show an edge.
+const LAYERS = [
+  { src: '/assets/hero/layer-0-sky.png', scroll: 0.1, pointer: 6, bleed: 20 },
+  { src: '/assets/hero/layer-1-far.png', scroll: 0.25, pointer: 12, bleed: 25 },
+  { src: '/assets/hero/layer-2-mid.png', scroll: 0.5, pointer: 20, bleed: 30 },
+  { src: '/assets/hero/layer-3-front.png', scroll: 0.8, pointer: 30, bleed: 35 },
+] as const;
+
+// Fixed star positions for a slow twinkle over the sky layer
+const STARS = [
+  { left: '18%', top: '12%', size: 3, delay: '0s', duration: '4.2s' },
+  { left: '30%', top: '16%', size: 4, delay: '1.4s', duration: '5.1s' },
+  { left: '42%', top: '22%', size: 3, delay: '2.8s', duration: '4.6s' },
+  { left: '12%', top: '28%', size: 3, delay: '0.8s', duration: '5.5s' },
+  { left: '64%', top: '8%', size: 4, delay: '2.1s', duration: '4.8s' },
+  { left: '78%', top: '14%', size: 3, delay: '3.5s', duration: '5.8s' },
+];
+
+/**
+ * Four-layer pixel-art hero scene with scroll parallax and (desktop) pointer parallax.
+ * Transforms are written straight to the layer elements once per animation frame
+ * instead of through React state, so scrolling never re-renders the scene.
+ * On a first visit the layers assemble one by one (see components/intro).
+ */
 export const HeroParallaxScene: React.FC = () => {
-  const [scrollY, setScrollY] = useState(0);
-  const [pointer, setPointer] = useState({ x: 0, y: 0 });
-  const [isDesktop, setIsDesktop] = useState(false);
-  const [reducedMotion, setReducedMotion] = useState(false);
+  const layerRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
-    // Check reduced motion
-    const rmQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setReducedMotion(rmQuery.matches);
-    const handleRmChange = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
-    rmQuery.addEventListener('change', handleRmChange);
+    const reducedQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    const pointerQuery = window.matchMedia('(min-width: 768px) and (pointer: fine)');
+    let pointerX = 0;
+    let pointerY = 0;
+    let frame = 0;
 
-    // Check desktop
-    const checkDesktop = () => {
-      setIsDesktop(window.innerWidth >= 768 && window.matchMedia('(pointer: fine)').matches);
-    };
-    checkDesktop();
-    window.addEventListener('resize', checkDesktop);
+    const apply = () => {
+      frame = 0;
+      const still = reducedQuery.matches;
+      const scrollY = window.scrollY;
+      // The hero is long gone after ~1.5 viewports; stop moving layers nobody can see
+      if (!still && scrollY > window.innerHeight * 1.5) return;
+      const usePointer = pointerQuery.matches;
 
-    // Scroll listener for parallax
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
+      LAYERS.forEach((layer, i) => {
+        const el = layerRefs.current[i];
+        if (!el) return;
+        if (still) {
+          el.style.transform = '';
+          return;
+        }
+        const px = usePointer ? pointerX * layer.pointer : 0;
+        const py = usePointer ? pointerY * layer.pointer : 0;
+        el.style.transform = `translate3d(${px}px, ${py + scrollY * layer.scroll}px, 0)`;
+      });
     };
-    window.addEventListener('scroll', handleScroll, { passive: true });
 
-    // Pointer move for desktop pointer parallax
-    const handleMouseMove = (e: MouseEvent) => {
-      if (!isDesktop || reducedMotion) return;
-      const { innerWidth, innerHeight } = window;
-      const nx = (e.clientX / innerWidth - 0.5) * 2;
-      const ny = (e.clientY / innerHeight - 0.5) * 2;
-      setPointer({ x: nx, y: ny });
+    const schedule = () => {
+      if (!frame) frame = requestAnimationFrame(apply);
     };
-    window.addEventListener('mousemove', handleMouseMove);
+
+    const onPointerMove = (e: PointerEvent) => {
+      if (!pointerQuery.matches) return;
+      pointerX = (e.clientX / window.innerWidth - 0.5) * 2;
+      pointerY = (e.clientY / window.innerHeight - 0.5) * 2;
+      schedule();
+    };
+
+    window.addEventListener('scroll', schedule, { passive: true });
+    window.addEventListener('resize', schedule);
+    window.addEventListener('pointermove', onPointerMove, { passive: true });
+    reducedQuery.addEventListener('change', schedule);
+    apply();
 
     return () => {
-      rmQuery.removeEventListener('change', handleRmChange);
-      window.removeEventListener('resize', checkDesktop);
-      window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener('mousemove', handleMouseMove);
+      cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', schedule);
+      window.removeEventListener('resize', schedule);
+      window.removeEventListener('pointermove', onPointerMove);
+      reducedQuery.removeEventListener('change', schedule);
     };
-  }, [isDesktop, reducedMotion]);
-
-  // Speeds: 0.1 (sky), 0.25 (far), 0.5 (mid), 0.8 (front)
-  // Pointer offsets: max 6px, 12px, 20px, 30px
-  const getTransform = (scrollSpeed: number, maxPointerOffset: number) => {
-    if (reducedMotion) return 'none';
-    const py = isDesktop ? pointer.y * maxPointerOffset : 0;
-    const px = isDesktop ? pointer.x * maxPointerOffset : 0;
-    const sy = scrollY * scrollSpeed;
-    return `translate3d(${px}px, ${py + sy}px, 0)`;
-  };
-
-  // Fixed star positions for gentle slow twinkle
-  const stars = [
-    { left: '18%', top: '12%', size: '3px', delay: '0s', duration: '4.2s' },
-    { left: '30%', top: '16%', size: '4px', delay: '1.4s', duration: '5.1s' },
-    { left: '42%', top: '22%', size: '3px', delay: '2.8s', duration: '4.6s' },
-    { left: '12%', top: '28%', size: '3px', delay: '0.8s', duration: '5.5s' },
-    { left: '64%', top: '8%', size: '4px', delay: '2.1s', duration: '4.8s' },
-    { left: '78%', top: '14%', size: '3px', delay: '3.5s', duration: '5.8s' },
-  ];
+  }, []);
 
   return (
-    <div
-      aria-hidden="true"
-      style={{
-        position: 'absolute',
-        inset: 0,
-        overflow: 'hidden',
-        pointerEvents: 'none',
-        zIndex: 0,
-        backgroundColor: '#120c15',
-      }}
-    >
-      {/* -------------------------------------------------------------
-          LAYER 0: SKY (Parallax: 0.1 scroll, max 6px pointer)
-          ------------------------------------------------------------- */}
-      <div
-        style={{
-          position: 'absolute',
-          inset: '-20px',
-          transform: getTransform(0.1, 6),
-          transition: reducedMotion ? 'none' : 'transform 0.12s ease-out',
-          zIndex: 0,
-        }}
-      >
-        <Image
-          src="/assets/hero/layer-0-sky.png"
-          alt=""
-          width={1920}
-          height={1080}
-          priority
-          className="pixelated hero-layer-img"
-        />
-
-        {/* Slow Twinkle on Stars (Disabled under reduced-motion) */}
-        {!reducedMotion &&
-          stars.map((star, idx) => (
-            <div
-              key={idx}
-              className="star-twinkle"
-              style={{
-                position: 'absolute',
-                left: star.left,
-                top: star.top,
-                width: star.size,
-                height: star.size,
-                backgroundColor: '#ffeec2',
-                borderRadius: '50%',
-                boxShadow: '0 0 6px rgba(255, 238, 194, 0.9)',
-                animation: `twinkleGlow ${star.duration} ease-in-out infinite alternate`,
-                animationDelay: star.delay,
-              }}
+    <div className="hero-scene" aria-hidden="true">
+      {LAYERS.map((layer, i) => (
+        <React.Fragment key={layer.src}>
+          <div
+            ref={(el) => {
+              layerRefs.current[i] = el;
+            }}
+            className="hero-layer"
+            style={{ inset: -layer.bleed, zIndex: i * 10, '--layer-i': i } as React.CSSProperties}
+          >
+            <Image
+              src={layer.src}
+              alt=""
+              width={1920}
+              height={1080}
+              priority={i === 0}
+              className="pixelated hero-layer-img"
             />
-          ))}
-      </div>
 
-      {/* -------------------------------------------------------------
-          LAYER 1: FAR (Mountains, Valley, Castle; Parallax: 0.25, max 12px)
-          ------------------------------------------------------------- */}
-      <div
-        style={{
-          position: 'absolute',
-          inset: '-25px',
-          transform: getTransform(0.25, 12),
-          transition: reducedMotion ? 'none' : 'transform 0.14s ease-out',
-          zIndex: 10,
-        }}
-      >
-        <Image
-          src="/assets/hero/layer-1-far.png"
-          alt=""
-          width={1920}
-          height={1080}
-          className="pixelated hero-layer-img"
-        />
-      </div>
+            {/* Sky: slow star twinkle */}
+            {i === 0 && (
+              <div className="hero-fx-wrap hero-intro-fx">
+                {STARS.map((star) => (
+                  <span
+                    key={`${star.left}-${star.top}`}
+                    className="hero-star"
+                    style={{
+                      left: star.left,
+                      top: star.top,
+                      width: star.size,
+                      height: star.size,
+                      animationDuration: star.duration,
+                      animationDelay: star.delay,
+                    }}
+                  />
+                ))}
+              </div>
+            )}
 
-      {/* -------------------------------------------------------------
-          LAYER 2: MID (Forest sides, Lanterns, Path; Parallax: 0.5, max 20px)
-          ------------------------------------------------------------- */}
-      <div
-        style={{
-          position: 'absolute',
-          inset: '-30px',
-          transform: getTransform(0.5, 20),
-          transition: reducedMotion ? 'none' : 'transform 0.16s ease-out',
-          zIndex: 20,
-        }}
-      >
-        <Image
-          src="/assets/hero/layer-2-mid.png"
-          alt=""
-          width={1920}
-          height={1080}
-          className="pixelated hero-layer-img"
-        />
-      </div>
+            {/* Front: soft flicker over the campfire */}
+            {i === LAYERS.length - 1 && (
+              <div className="hero-fx-wrap hero-intro-fx">
+                <div className="hero-campfire-glow" />
+              </div>
+            )}
+          </div>
 
-      {/* -------------------------------------------------------------
-          EMBER CANVAS (Between Layer 2 and Layer 3)
-          ------------------------------------------------------------- */}
-      <div
-        style={{
-          position: 'absolute',
-          inset: 0,
-          zIndex: 25,
-        }}
-      >
-        <EmberCanvas />
-      </div>
+          {/* Embers drift between the mid forest and the foreground */}
+          {i === 2 && (
+            <div className="hero-embers hero-intro-fx">
+              <EmberCanvas />
+            </div>
+          )}
+        </React.Fragment>
+      ))}
 
-      {/* -------------------------------------------------------------
-          LAYER 3: FRONT (Campfire, 3 Cats, Mushrooms; Parallax: 0.8, max 30px)
-          ------------------------------------------------------------- */}
-      <div
-        style={{
-          position: 'absolute',
-          inset: '-35px',
-          transform: getTransform(0.8, 30),
-          transition: reducedMotion ? 'none' : 'transform 0.18s ease-out',
-          zIndex: 30,
-        }}
-      >
-        <Image
-          src="/assets/hero/layer-3-front.png"
-          alt=""
-          width={1920}
-          height={1080}
-          className="pixelated hero-layer-img"
-        />
-
-        {/* Soft Flicker Glow over the Campfire */}
-        <div
-          className={`hero-campfire-glow ${reducedMotion ? '' : 'campfire-flicker'}`}
-          style={{
-            opacity: reducedMotion ? 0.7 : undefined,
-          }}
-        />
-      </div>
-
-      {/* -------------------------------------------------------------
-          BOTTOM VIGNETTE (Fades smoothly into next section / background)
-          ------------------------------------------------------------- */}
-      <div
-        className="hero-bottom-vignette"
-      />
-
-      {/* -------------------------------------------------------------
-          SMOOTH HORIZONTAL FADE (Desktop only: No seam at ~60%)
-          Seamless gradient from solid dark on left across to transparent
-          ------------------------------------------------------------- */}
-      <div
-        className="hero-horizontal-fade"
-      />
+      {/* Fade into the next section, and a left-side fade that keeps the copy legible */}
+      <div className="hero-bottom-vignette" />
+      <div className="hero-horizontal-fade" />
 
       <style jsx>{`
+        .hero-scene {
+          position: absolute;
+          inset: 0;
+          overflow: hidden;
+          pointer-events: none;
+          z-index: 0;
+          background-color: #120c15;
+        }
+
+        .hero-layer {
+          position: absolute;
+          transition: transform 0.14s ease-out;
+          will-change: transform;
+        }
+
+        .hero-embers {
+          position: absolute;
+          inset: 0;
+          z-index: 25;
+        }
+
+        .hero-fx-wrap {
+          position: absolute;
+          inset: 0;
+        }
+
         :global(.hero-layer-img) {
           width: 100%;
           height: 100%;
@@ -230,7 +181,18 @@ export const HeroParallaxScene: React.FC = () => {
           object-position: bottom center;
         }
 
-        :global(.hero-campfire-glow) {
+        .hero-star {
+          position: absolute;
+          border-radius: 50%;
+          background-color: #ffeec2;
+          box-shadow: 0 0 6px rgba(255, 238, 194, 0.9);
+          animation-name: twinkleGlow;
+          animation-timing-function: ease-in-out;
+          animation-iteration-count: infinite;
+          animation-direction: alternate;
+        }
+
+        .hero-campfire-glow {
           position: absolute;
           left: 65.2%;
           bottom: 18%;
@@ -239,27 +201,23 @@ export const HeroParallaxScene: React.FC = () => {
           height: 280px;
           border-radius: 50%;
           background: radial-gradient(circle, rgba(255, 140, 40, 0.45) 0%, rgba(232, 182, 76, 0.22) 40%, transparent 72%);
-          pointer-events: none;
           z-index: 35;
+          animation: fireFlicker 1.8s ease-in-out infinite alternate;
         }
 
-        :global(.hero-bottom-vignette) {
+        .hero-bottom-vignette {
           position: absolute;
           bottom: 0;
           left: 0;
           right: 0;
           height: 72px;
           background: linear-gradient(to bottom, transparent 0%, rgba(24, 20, 18, 0.55) 55%, var(--color-hearth-charcoal) 100%);
-          pointer-events: none;
           z-index: 40;
         }
 
-        :global(.hero-horizontal-fade) {
+        .hero-horizontal-fade {
           position: absolute;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
+          inset: 0;
           background: linear-gradient(
             to right,
             rgba(18, 12, 21, 0.94) 0%,
@@ -269,29 +227,39 @@ export const HeroParallaxScene: React.FC = () => {
             rgba(18, 12, 21, 0.06) 80%,
             transparent 92%
           );
-          pointer-events: none;
           z-index: 42;
         }
 
-        @media (max-width: 640px) {
-          :global(.hero-layer-img) {
-            object-position: 68% bottom !important;
-          }
+        /* --- First-visit intro: layers assemble back to front, then the ambient effects --- */
+        :global(html[data-intro='typing']) .hero-scene :global(.hero-layer-img),
+        :global(html[data-intro='typing']) .hero-intro-fx {
+          opacity: 0;
+        }
 
-          :global(.hero-campfire-glow) {
-            left: 50% !important;
-            bottom: 20% !important;
-            width: 220px !important;
-            height: 220px !important;
-          }
+        :global(html[data-intro='reveal']) .hero-scene :global(.hero-layer-img) {
+          animation: heroLayerIn 0.5s cubic-bezier(0.22, 1, 0.36, 1) both;
+          animation-delay: calc(var(--layer-i) * 110ms + 80ms);
+        }
 
-          :global(.hero-horizontal-fade) {
-            display: none !important;
-          }
+        /* Wrappers (not the twinkling/flickering elements) fade, so their own loops keep running */
+        :global(html[data-intro='reveal']) .hero-intro-fx {
+          animation: heroFxIn 0.4s ease-out 0.5s both;
+        }
 
-          :global(.hero-bottom-vignette) {
-            height: 56px;
-            background: linear-gradient(to bottom, transparent 0%, var(--color-hearth-charcoal) 100%);
+        @keyframes heroLayerIn {
+          from {
+            opacity: 0;
+            transform: translateY(28px);
+          }
+          to {
+            opacity: 1;
+            transform: none;
+          }
+        }
+
+        @keyframes heroFxIn {
+          from {
+            opacity: 0;
           }
         }
 
@@ -318,12 +286,8 @@ export const HeroParallaxScene: React.FC = () => {
           }
           100% {
             opacity: 0.85;
-            transform: translate(-50%, 50%) scale(1.0);
+            transform: translate(-50%, 50%) scale(1);
           }
-        }
-
-        .campfire-flicker {
-          animation: fireFlicker 1.8s ease-in-out infinite alternate;
         }
 
         @keyframes twinkleGlow {
@@ -338,6 +302,28 @@ export const HeroParallaxScene: React.FC = () => {
           100% {
             opacity: 0.35;
             transform: scale(0.9);
+          }
+        }
+
+        @media (max-width: 640px) {
+          :global(.hero-layer-img) {
+            object-position: 68% bottom;
+          }
+
+          .hero-campfire-glow {
+            left: 50%;
+            bottom: 20%;
+            width: 220px;
+            height: 220px;
+          }
+
+          .hero-horizontal-fade {
+            display: none;
+          }
+
+          .hero-bottom-vignette {
+            height: 56px;
+            background: linear-gradient(to bottom, transparent 0%, var(--color-hearth-charcoal) 100%);
           }
         }
       `}</style>

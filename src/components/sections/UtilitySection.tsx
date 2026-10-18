@@ -2,61 +2,11 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { content } from '@/config/content';
 
 export const UtilitySection: React.FC = () => {
-  const inventorySlots = [
-    {
-      slotNum: '01',
-      id: 'hearth-rest',
-      icon: '🔥',
-      name: 'Hearth Rest',
-      phaseLabel: 'Coming in Phase 1',
-      whatItIs:
-        'Rest your Meow by the fire and build up Rest Points. Your Meow stays in your wallet while it rests (planned design), and you can wake it whenever you like.',
-      points: [
-        'Rest Points help power your Party on the Atlas.',
-        'They unlock cosmetic perks like Hearth badges and profile frames.',
-        'They can give priority or eligibility in future land phases.',
-        'Rested Meows get the Hearth Resting role in Discord.',
-      ],
-      whatThisIsnt:
-        "Rest Points are non-monetary points with no cash value. They're for in-world perks, not a paycheck.",
-    },
-    {
-      slotNum: '02',
-      id: 'territories',
-      icon: '🏰',
-      name: 'Territories',
-      phaseLabel: 'Coming in Phase 2',
-      whatItIs:
-        'Whiskerwild is divided into places you can hold: castles, forests, dungeons, roads, temples and plazas. Each Territory is its own collectible, tied to a tile on the map.',
-      points: [
-        'Some tiles need a Party that meets a claim gate (for example, a Dungeon wants an Assassin and an Archer).',
-        'Gates reward collecting different Classes and taking part over time, not just holding the most.',
-        'Later (Phase 3), the grandest Landmarks can be owned in slices by many holders.',
-        'If a Territory generates real fees in the protocol, a published portion goes to its owner(s). The split is published before any land sale.',
-      ],
-      whatThisIsnt:
-        'Territory fee distributions, if any, come only from real fees generated in the protocol and may be zero. No fees means nothing to distribute.',
-    },
-    {
-      slotNum: '03',
-      id: 'whiskerwild-atlas',
-      icon: '🗺️',
-      name: 'Whiskerwild Atlas',
-      phaseLabel: 'Coming in Phase 1',
-      whatItIs:
-        'A pixel map game in your browser. Pan and zoom across Region 1, see who holds what, and watch House banners go up on tiles as Whiskerwild fills in.',
-      points: [
-        'Phase 1: read-only map of Region 1 with tile previews and a Party builder.',
-        'Phase 2: claim, defend and upgrade tiles with your Party.',
-        'Phase 4: seasonal loops: Patrol, Hunt, Study and opt-in Raids.',
-        "Raids never take anyone's collectibles. They shift banners for a season.",
-      ],
-      whatThisIsnt:
-        'The Atlas is a game about places and Parties. Ownership first, no grind, and no promises of value.',
-    },
-  ];
+  // Slot numbers (01, 02, 03) follow card order
+  const inventorySlots = content.utility.cards.map((card, i) => ({ ...card, slotNum: String(i + 1).padStart(2, '0') }));
 
   return (
     <section id="utility" className="utility-section-root">
@@ -102,7 +52,7 @@ export const UtilitySection: React.FC = () => {
               margin: '0 auto',
             }}
           >
-            Three pieces, shipped in honest phases.
+            {content.utility.intro}
           </p>
         </div>
 
@@ -148,6 +98,11 @@ export const UtilitySection: React.FC = () => {
                 <span className="font-label what-isnt-tag">What this isn&apos;t:</span>
                 <p className="font-body what-isnt-text">{slot.whatThisIsnt}</p>
               </div>
+
+              {/* Required beside the Territories card (reference 7.3) */}
+              {slot.id === 'territories' && (
+                <p className="font-body territory-disclaimer">{content.utility.territoryDisclaimer}</p>
+              )}
             </div>
           ))}
         </div>
@@ -155,8 +110,10 @@ export const UtilitySection: React.FC = () => {
         {/* Summary Banner */}
         <div className="pixel-box-sm utility-summary-banner">
           <p className="font-body" style={{ margin: 0, fontSize: '14px', color: 'var(--color-ink-secondary)', lineHeight: 1.55 }}>
-            <strong className="font-label" style={{ color: 'var(--color-ink-primary)' }}>Full stack: </strong>
-            Meow &rarr; Discord identity + Hearth Rest + Party power; Territory &rarr; a tile on the Atlas, held by one holder or (for Landmarks) in slices.
+            <strong className="font-label" style={{ color: 'var(--color-ink-primary)' }}>
+              {content.utility.summaryLabel}
+            </strong>{' '}
+            {content.utility.summaryLine}
           </p>
           <div style={{ marginTop: '12px' }}>
             <Link
@@ -194,8 +151,8 @@ export const UtilitySection: React.FC = () => {
           background-color: var(--color-parchment-card);
           padding: 24px;
           border-radius: 8px;
-          border: 3px solid #2b1e16;
-          box-shadow: 4px 4px 0 #2b1e16;
+          border: 3px solid var(--color-ink-primary);
+          box-shadow: 4px 4px 0 var(--color-ink-primary);
           display: flex;
           flex-direction: column;
           gap: 16px;
@@ -204,7 +161,7 @@ export const UtilitySection: React.FC = () => {
 
         :global(.inventory-slot-card:hover) {
           transform: translateY(-4px);
-          box-shadow: 6px 6px 0 #2b1e16;
+          box-shadow: 6px 6px 0 var(--color-ink-primary);
         }
 
         :global(.slot-header-bar) {
@@ -242,8 +199,8 @@ export const UtilitySection: React.FC = () => {
           height: 52px;
           border-radius: 6px;
           background-color: var(--color-hearth-soot);
-          border: 2px solid #2b1e16;
-          box-shadow: 2px 2px 0 #2b1e16;
+          border: 2px solid var(--color-ink-primary);
+          box-shadow: 2px 2px 0 var(--color-ink-primary);
           display: flex;
           align-items: center;
           justify-content: center;
@@ -314,14 +271,24 @@ export const UtilitySection: React.FC = () => {
           margin: 0;
         }
 
+        :global(.territory-disclaimer) {
+          font-size: 12.5px;
+          color: var(--color-ink-secondary);
+          line-height: 1.5;
+          margin: 0;
+          padding: 10px 12px;
+          border-left: 3px solid var(--color-candle-gold);
+          background-color: var(--color-parchment-base);
+        }
+
         :global(.utility-summary-banner) {
           max-width: 1140px;
           margin: 0 auto;
           background-color: var(--color-parchment-card);
           padding: 18px 24px;
           border-radius: 6px;
-          border: 2px solid #2b1e16;
-          box-shadow: 3px 3px 0 #2b1e16;
+          border: 2px solid var(--color-ink-primary);
+          box-shadow: 3px 3px 0 var(--color-ink-primary);
         }
 
         @media (max-width: 992px) {

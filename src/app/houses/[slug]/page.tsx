@@ -36,7 +36,7 @@ export async function generateMetadata({ params }: HousePageProps): Promise<Meta
       url: `${siteConfig.SITE_URL}/houses/${house.slug}/`,
       images: [
         {
-          url: house.webArt1000 || house.art,
+          url: house.webArt1000,
           width: 1000,
           height: 1000,
           alt: house.altText,

@@ -90,7 +90,7 @@ export const ClassesIndexContent: React.FC = () => {
               <div className="class-card-body">
                 <div className="class-portrait-wrap">
                   <Image
-                    src={cls.webArt500 || cls.art}
+                    src={cls.webArt500}
                     alt={cls.altText}
                     fill
                     className="pixelated"
@@ -181,8 +181,8 @@ export const ClassesIndexContent: React.FC = () => {
           display: flex;
           flex-direction: column;
           border-radius: 8px;
-          border: 3px solid #2b1e16;
-          box-shadow: 4px 4px 0 #2b1e16;
+          border: 3px solid var(--color-ink-primary);
+          box-shadow: 4px 4px 0 var(--color-ink-primary);
           overflow: hidden;
           background-color: var(--color-parchment-card);
         }
@@ -193,7 +193,7 @@ export const ClassesIndexContent: React.FC = () => {
           justify-content: space-between;
           padding: 10px 16px;
           background-color: var(--color-parchment-base);
-          border-bottom: 2px solid #2b1e16;
+          border-bottom: 2px solid var(--color-ink-primary);
         }
 
         :global(.neutral-class-badge) {
@@ -229,7 +229,7 @@ export const ClassesIndexContent: React.FC = () => {
           height: 190px;
           border-radius: 6px;
           overflow: hidden;
-          border: 2px solid #2b1e16;
+          border: 2px solid var(--color-ink-primary);
           background-color: var(--color-hearth-soot);
           margin-bottom: 16px;
         }

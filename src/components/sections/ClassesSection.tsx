@@ -115,7 +115,7 @@ export const ClassesSection: React.FC = () => {
                     {/* Crisp Pixel Portrait */}
                     <div className="class-portrait-wrap">
                       <Image
-                        src={cls.webArt500 || cls.art}
+                        src={cls.webArt500}
                         alt={cls.altText}
                         fill
                         className="pixelated"
@@ -238,8 +238,8 @@ export const ClassesSection: React.FC = () => {
           background-color: var(--color-parchment-card);
           padding: 10px;
           border-radius: 6px;
-          border: 3px solid #2b1e16;
-          box-shadow: 4px 4px 0 #2b1e16;
+          border: 3px solid var(--color-ink-primary);
+          box-shadow: 4px 4px 0 var(--color-ink-primary);
           display: flex;
           flex-direction: column;
           gap: 7px;
@@ -248,8 +248,8 @@ export const ClassesSection: React.FC = () => {
 
         :global(.class-card-item:hover .class-card-inner),
         :global(.class-card-item.is-lifted .class-card-inner) {
-          border-color: #2b1e16;
-          box-shadow: 5px 6px 0 #2b1e16;
+          border-color: var(--color-ink-primary);
+          box-shadow: 5px 6px 0 var(--color-ink-primary);
           background-color: #fdfbf7;
         }
 
@@ -308,8 +308,8 @@ export const ClassesSection: React.FC = () => {
           background-color: var(--color-parchment-card);
           padding: 26px 30px;
           border-radius: 8px;
-          border: 3px solid #2b1e16;
-          box-shadow: 4px 4px 0 #2b1e16;
+          border: 3px solid var(--color-ink-primary);
+          box-shadow: 4px 4px 0 var(--color-ink-primary);
         }
 
         :global(.dossier-header-row) {

@@ -34,16 +34,13 @@
   --house-rimewhisper: #6fa8d6;     /* Glacier blue */
   --house-voidpurr: #9a7ae0;        /* Starlight violet */
 
-  /* --- Shared Neutral Class Badge (Ink on parchment, gold outline) --- */
-  --class-badge-bg: #f5ecd8;
-  --class-badge-text: #2b1e16;
-  --class-badge-border: #d4a743;
-
-  /* --- Status Badges --- */
-  --color-status-progress-bg: #2f5a3a;
-  --color-status-progress-text: #e9f7df;
-  --color-status-planned-bg: #3a312a;
-  --color-status-planned-text: #d5c8b5;
+  /* Text on each House color (all >= 4.5:1, WCAG AA) */
+  --house-circle-of-whisk-on: #2b1e16;
+  --house-pawguard-on: #fffdf7;
+  --house-rootpads-on: #fffdf7;
+  --house-emberkin-on: #2b1e16;
+  --house-rimewhisper-on: #2b1e16;
+  --house-voidpurr-on: #2b1e16;
 
   /* --- Spacing Scale (4px baseline) --- */
   --space-1: 4px;
@@ -65,13 +62,6 @@
   --radius-md: 6px;
   --radius-lg: 8px;
   --radius-pill: 9999px;
-
-  /* --- Shadows & Glows --- */
-  --shadow-sm: 0 1px 2px rgba(43, 30, 22, 0.08);
-  --shadow-md: 0 4px 12px rgba(43, 30, 22, 0.1);
-  --shadow-lg: 0 8px 24px rgba(43, 30, 22, 0.14);
-  --glow-candle: 0 0 16px rgba(232, 182, 76, 0.35);
-  --glow-ember: 0 0 20px rgba(224, 112, 42, 0.4);
 
   /* --- Typography Font Variables (injected via next/font) --- */
   --font-pixel: var(--font-pixelify, 'Pixelify Sans', monospace);

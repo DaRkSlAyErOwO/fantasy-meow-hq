@@ -151,9 +151,7 @@ export const Footer: React.FC = () => {
             gap: '8px',
           }}
         >
-          <p className="font-body" style={{ color: 'var(--color-candle-gold)', fontSize: '16px', fontWeight: 700 }}>
-            Stay safe.
-          </p>
+          {/* footerBlock already opens with "Stay safe.", so no separate heading */}
           <p style={{ color: 'var(--color-hearth-text)', fontSize: '14px', lineHeight: 1.5 }}>
             {content.safety.footerBlock}
           </p>

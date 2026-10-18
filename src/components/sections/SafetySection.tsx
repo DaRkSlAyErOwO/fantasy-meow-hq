@@ -104,7 +104,7 @@ export const SafetySection: React.FC = () => {
               rel="noopener noreferrer"
               className="font-label official-link-pill"
             >
-              X: @{siteConfig.X_HANDLE}
+              X: {siteConfig.X_HANDLE}
             </a>
           </div>
         </div>
@@ -124,8 +124,8 @@ export const SafetySection: React.FC = () => {
           background-color: var(--color-parchment-card);
           padding: 30px 34px;
           border-radius: 8px;
-          border: 3px solid #2b1e16;
-          box-shadow: 4px 4px 0 #2b1e16;
+          border: 3px solid var(--color-ink-primary);
+          box-shadow: 4px 4px 0 var(--color-ink-primary);
           display: flex;
           flex-direction: column;
           gap: 20px;

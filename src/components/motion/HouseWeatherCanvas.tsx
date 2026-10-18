@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
+import { usePrefersReducedMotion } from '@/hooks/usePrefersReducedMotion';
 
 interface HouseWeatherCanvasProps {
   slug: string;
@@ -8,17 +9,7 @@ interface HouseWeatherCanvasProps {
 
 export const HouseWeatherCanvas: React.FC<HouseWeatherCanvasProps> = ({ slug }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
-  const [reducedMotion, setReducedMotion] = useState(false);
-
-  useEffect(() => {
-    // Check reduced motion
-    const rmQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
-    setReducedMotion(rmQuery.matches);
-    const handleRmChange = (e: MediaQueryListEvent) => setReducedMotion(e.matches);
-    rmQuery.addEventListener('change', handleRmChange);
-
-    return () => rmQuery.removeEventListener('change', handleRmChange);
-  }, []);
+  const reducedMotion = usePrefersReducedMotion();
 
   useEffect(() => {
     if (reducedMotion) return;

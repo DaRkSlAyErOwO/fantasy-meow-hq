@@ -3,35 +3,27 @@
 import React from 'react';
 import Link from 'next/link';
 import { content } from '@/config/content';
+import { siteConfig } from '@/config/site.config';
+
+const { MINT } = siteConfig;
+const { mint } = content;
+
+const mintParams = [
+  { label: 'Supply', value: MINT.supply },
+  { label: 'Price', value: MINT.price },
+  { label: 'Chain', value: MINT.chain },
+  { label: 'Per-Wallet Limit', value: MINT.perWallet },
+];
+
+// One step per mint phase, in order (OG -> GTD -> FCFS)
+const plainSteps = Object.values(MINT.phases).map((phase, i) => ({
+  step: String(i + 1).padStart(2, '0'),
+  tier: phase.name === phase.tag ? phase.name : `${phase.name} (${phase.tag})`,
+  status: phase.window,
+  desc: phase.guarantee,
+}));
 
 export const MintSection: React.FC = () => {
-  const mintParams = [
-    { label: 'Supply', value: 'TBA' },
-    { label: 'Price', value: 'TBA' },
-    { label: 'Chain', value: 'TBA' },
-    { label: 'Per-Wallet Limit', value: 'TBA' },
-  ];
-
-  const plainSteps = [
-    {
-      step: '01',
-      tier: 'Founding Whisk (OG)',
-      status: 'TBA',
-      desc: 'Guaranteed mint within the OG window. Earned via high-tier community Merits.',
-    },
-    {
-      step: '02',
-      tier: 'GTD',
-      status: 'TBA',
-      desc: 'Guaranteed mint within the GTD window. Earned via consistent quest participation.',
-    },
-    {
-      step: '03',
-      tier: 'FCFS (WL)',
-      status: 'TBA',
-      desc: 'First come, first served while supply lasts. WL is not a guaranteed mint.',
-    },
-  ];
 
   return (
     <section id="mint" className="mint-section-root">
@@ -92,7 +84,7 @@ export const MintSection: React.FC = () => {
         </div>
 
         {/* Plain Steps: OG / GTD / FCFS (All TBA, no progress bar, no active highlight) */}
-        <div className="mint-steps-container">
+        <div className="mint-panel">
           <div className="steps-header">
             <h3 className="font-label" style={{ fontSize: '20px', color: 'var(--color-ink-primary)', margin: 0 }}>
               Mint Phases
@@ -121,6 +113,66 @@ export const MintSection: React.FC = () => {
           </div>
         </div>
 
+        {/* How to earn a spot (reference 9.3) */}
+        <div className="mint-panel">
+          <div className="steps-header">
+            <h3 className="font-label panel-title">How to earn a spot</h3>
+          </div>
+          <ol className="earn-grid">
+            {mint.howToEarn.map((item) => (
+              <li key={item.step} className="earn-card">
+                <span className="font-label step-number">{item.step}</span>
+                <h4 className="font-label step-tier-title">{item.title}</h4>
+                <p className="font-body step-desc">{item.text}</p>
+              </li>
+            ))}
+          </ol>
+          <p className="font-body panel-note">{mint.pathLine}</p>
+        </div>
+
+        {/* Merits tiers, lowest to highest (reference 9.4) */}
+        <div className="mint-panel">
+          <div className="steps-header">
+            <h3 className="font-label panel-title">Merits tiers</h3>
+            <span className="font-label panel-tag">Lowest to highest</span>
+          </div>
+          <ol className="tier-list">
+            {mint.meritsTiers.map((tier) => (
+              <li key={tier.tier} className="tier-row">
+                <span className="tier-emoji" aria-hidden="true">
+                  {tier.emoji}
+                </span>
+                <div>
+                  <h4 className="font-label step-tier-title">{tier.tier}</h4>
+                  <p className="font-body step-desc">{tier.text}</p>
+                </div>
+              </li>
+            ))}
+          </ol>
+          <p className="font-body panel-note">{mint.tiersFinePrint}</p>
+        </div>
+
+        {/* What each spot means (reference 9.5) */}
+        <div className="mint-panel">
+          <div className="steps-header">
+            <h3 className="font-label panel-title">What each spot means</h3>
+          </div>
+          <ul className="spot-list">
+            {mint.whatEachSpotMeans.map((spot) => (
+              <li key={spot.label} className="font-body spot-item">
+                <strong>{spot.label}:</strong> {spot.text}
+                {'emphasis' in spot && (
+                  <>
+                    {' '}
+                    <strong>{spot.emphasis}</strong>
+                  </>
+                )}
+              </li>
+            ))}
+          </ul>
+          <p className="font-body panel-note">{mint.spotNotice}</p>
+        </div>
+
         {/* Single Disabled Control: Mint: coming soon */}
         <div className="mint-action-cluster">
           <button
@@ -130,7 +182,7 @@ export const MintSection: React.FC = () => {
             className="pixel-btn disabled-mint-btn"
           >
             <span className="pulsing-ember" aria-hidden="true" />
-            Mint: coming soon
+            {content.hero.ctaMint}
           </button>
           <p className="font-body mint-control-subtext">
             Mints are announced strictly on our official Discord and website.
@@ -173,8 +225,8 @@ export const MintSection: React.FC = () => {
           background-color: var(--color-parchment-card);
           padding: 16px;
           border-radius: 6px;
-          border: 2px solid #2b1e16;
-          box-shadow: 3px 3px 0 #2b1e16;
+          border: 2px solid var(--color-ink-primary);
+          box-shadow: 3px 3px 0 var(--color-ink-primary);
           text-align: center;
           display: flex;
           flex-direction: column;
@@ -194,14 +246,95 @@ export const MintSection: React.FC = () => {
           font-weight: 700;
         }
 
-        :global(.mint-steps-container) {
+        :global(.mint-panel) {
           max-width: 860px;
-          margin: 0 auto 36px;
+          margin: 0 auto 28px;
           background-color: var(--color-parchment-card);
           padding: 24px 28px;
           border-radius: 8px;
-          border: 3px solid #2b1e16;
-          box-shadow: 4px 4px 0 #2b1e16;
+          border: 3px solid var(--color-ink-primary);
+          box-shadow: 4px 4px 0 var(--color-ink-primary);
+        }
+
+        :global(.panel-title) {
+          font-size: 20px;
+          color: var(--color-ink-primary);
+          margin: 0;
+        }
+
+        :global(.panel-tag) {
+          font-size: 11px;
+          color: var(--color-candle-dark);
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+        }
+
+        :global(.panel-note) {
+          font-size: 13.5px;
+          color: var(--color-ink-secondary);
+          font-style: italic;
+          line-height: 1.5;
+          margin: 16px 0 0;
+        }
+
+        :global(.earn-grid) {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 12px;
+        }
+
+        :global(.earn-card) {
+          background-color: var(--color-parchment-base);
+          border: 2px solid var(--color-ink-primary);
+          box-shadow: 2px 2px 0 var(--color-ink-primary);
+          border-radius: 6px;
+          padding: 14px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+        }
+
+        :global(.tier-list),
+        :global(.spot-list) {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        :global(.tier-row) {
+          display: flex;
+          align-items: flex-start;
+          gap: 14px;
+          background-color: var(--color-parchment-base);
+          border: 1px solid var(--color-parchment-border);
+          border-radius: 6px;
+          padding: 12px 16px;
+        }
+
+        :global(.tier-emoji) {
+          font-size: 22px;
+          line-height: 1;
+          margin-top: 2px;
+          flex-shrink: 0;
+        }
+
+        :global(.spot-item) {
+          font-size: 15px;
+          color: var(--color-ink-secondary);
+          line-height: 1.55;
+          padding-left: 14px;
+          border-left: 3px solid var(--color-candle-gold);
+        }
+
+        :global(.spot-item strong) {
+          color: var(--color-ink-primary);
         }
 
         :global(.steps-header) {
@@ -223,8 +356,8 @@ export const MintSection: React.FC = () => {
           background-color: var(--color-parchment-base);
           padding: 16px 20px;
           border-radius: 6px;
-          border: 2px solid #2b1e16;
-          box-shadow: 2px 2px 0 #2b1e16;
+          border: 2px solid var(--color-ink-primary);
+          box-shadow: 2px 2px 0 var(--color-ink-primary);
           display: flex;
           align-items: flex-start;
           gap: 16px;
@@ -282,8 +415,8 @@ export const MintSection: React.FC = () => {
           font-family: inherit;
           background-color: #241c22 !important;
           color: #c9bbae !important;
-          border: 3px solid #2b1e16 !important;
-          box-shadow: 4px 4px 0 #2b1e16 !important;
+          border: 3px solid var(--color-ink-primary) !important;
+          box-shadow: 4px 4px 0 var(--color-ink-primary) !important;
           cursor: not-allowed !important;
           user-select: none;
         }
@@ -309,8 +442,14 @@ export const MintSection: React.FC = () => {
           background-color: var(--color-parchment-card);
           padding: 18px 22px;
           border-radius: 6px;
-          border: 2px solid #2b1e16;
-          box-shadow: 3px 3px 0 #2b1e16;
+          border: 2px solid var(--color-ink-primary);
+          box-shadow: 3px 3px 0 var(--color-ink-primary);
+        }
+
+        @media (max-width: 860px) {
+          :global(.earn-grid) {
+            grid-template-columns: repeat(2, 1fr);
+          }
         }
 
         @media (max-width: 768px) {
@@ -324,8 +463,12 @@ export const MintSection: React.FC = () => {
             padding: 50px 0 70px;
           }
 
-          :global(.mint-steps-container) {
+          :global(.mint-panel) {
             padding: 16px;
+          }
+
+          :global(.earn-grid) {
+            grid-template-columns: 1fr;
           }
 
           :global(.mint-step-row) {

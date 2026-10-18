@@ -140,8 +140,8 @@ export const DisclosuresContent: React.FC = () => {
           background-color: var(--color-parchment-card);
           padding: 32px 36px;
           border-radius: 8px;
-          border: 3px solid #2b1e16;
-          box-shadow: 4px 4px 0 #2b1e16;
+          border: 3px solid var(--color-ink-primary);
+          box-shadow: 4px 4px 0 var(--color-ink-primary);
           max-width: 920px;
         }
 

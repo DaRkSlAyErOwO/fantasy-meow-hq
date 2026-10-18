@@ -1,6 +1,13 @@
 import { HouseRecord, ClassRecord, UtilityCard, RoadmapPhase, FaqItem, MeritsTier } from '../types/content.types';
 
 export const content = {
+  // First-visit title card (typed letter by letter before the hero scene assembles)
+  intro: {
+    title: "Fantasy Meows",
+    line: "Magic lives in whiskers.",
+    skipLabel: "Skip intro",
+  },
+
   hero: {
     eyebrow: "Pixel cats · Soft-epic fantasy",
     h1: "Magic lives in whiskers.",
@@ -15,7 +22,7 @@ export const content = {
 
   whatIsThis: [
     { number: "01", title: "A House", text: "Who you are in the story and Discord." },
-    { number: "02", ClassTitle: "A Class", text: "What you do on the map and in the game." },
+    { number: "02", title: "A Class", text: "What you do on the map and in the game." },
     { number: "03", title: "A place", text: "Territories on the Whiskerwild Atlas." },
   ],
 
@@ -69,7 +76,6 @@ export const content = {
       discordChannel: "circle-of-whisk",
       denGreeting: "Round room, round table, round cushions. A circle has no head, so everyone gets a turn to speak (and to nap).",
       atlasAffinity: "A small boost to Study and Upgrade actions on Temples & Academies.",
-      art: "/assets/art/houses/house-circle-of-whisk-3000.png",
       webArt500: "/assets/web/art/circle-of-whisk-500.webp",
       webArt1000: "/assets/web/art/circle-of-whisk-1000.webp",
       altText: "Pixel-art cream cat in a plum wizard hat holding a glowing staff beside a moonlit castle"
@@ -90,7 +96,6 @@ export const content = {
       discordChannel: "pawguard",
       denGreeting: "Helms polished, lanterns lit, someone's already sitting by the door.",
       atlasAffinity: "A small boost to Defend actions on Castles & Gates.",
-      art: "/assets/art/houses/house-pawguard-3000.png",
       webArt500: "/assets/web/art/pawguard-500.webp",
       webArt1000: "/assets/web/art/pawguard-1000.webp",
       altText: "Pixel-art grey tabby in a horned steel helm holding a book and a glowing orb under a night sky"
@@ -111,7 +116,6 @@ export const content = {
       discordChannel: "rootpads",
       denGreeting: "Mind the mushroom ring. The owls are listening, even if they pretend not to be.",
       atlasAffinity: "A small boost to Claim actions on Forests.",
-      art: "/assets/art/houses/house-rootpads-3000.png",
       webArt500: "/assets/web/art/rootpads-500.webp",
       webArt1000: "/assets/web/art/rootpads-1000.webp",
       altText: "Pixel-art tabby in a brown hooded cloak holding a book in a glowing mossy forest"
@@ -132,7 +136,6 @@ export const content = {
       discordChannel: "emberkin",
       denGreeting: "The forge is warm, the kettle's on, and someone's whiskers are already glowing.",
       atlasAffinity: "A small boost to Upgrade actions on Plazas & Markets.",
-      art: "/assets/art/houses/house-emberkin-3000.png",
       webArt500: "/assets/web/art/emberkin-500.webp",
       webArt1000: "/assets/web/art/emberkin-1000.webp",
       altText: "Pixel-art ginger cat in an orange wizard hat and robes holding a fire staff amid flames"
@@ -153,7 +156,6 @@ export const content = {
       discordChannel: "rimewhisper",
       denGreeting: "Thin air, close stars, an ice-lantern that never melts indoors.",
       atlasAffinity: "A small boost to Defend actions on Towers & high ground.",
-      art: "/assets/art/houses/house-rimewhisper-3000.png",
       webArt500: "/assets/web/art/rimewhisper-500.webp",
       webArt1000: "/assets/web/art/rimewhisper-1000.webp",
       altText: "Pixel-art white fluffy cat in a frosty white wizard hat holding an ice-crystal staff"
@@ -174,12 +176,11 @@ export const content = {
       discordChannel: "voidpurr",
       denGreeting: "You didn't see us climb onto the wardrobe. Nobody ever does.",
       atlasAffinity: "A small boost to Claim actions on Dungeons & Alleys.",
-      art: "/assets/art/houses/house-voidpurr-3000.png",
       webArt500: "/assets/web/art/voidpurr-500.webp",
       webArt1000: "/assets/web/art/voidpurr-1000.webp",
       altText: "Pixel-art calico cat in a grey wizard hat with a violet halo and a purple potion amid swirling magic"
     }
-  ] as HouseRecord[],
+  ] satisfies HouseRecord[],
 
   classes: [
     {
@@ -191,7 +192,6 @@ export const content = {
       silhouetteKit: "Helm and light armor, sword and shield",
       landAffinity: "Castles, Roads",
       discordEmoji: "🗡️",
-      art: "/assets/art/classes/class-knight-3000.png",
       webArt500: "/assets/web/art/knight-500.webp",
       webArt1000: "/assets/web/art/knight-1000.webp",
       altText: "Pixel-art orange tabby Knight in light plate with a sword, a paw-crest shield and a blue cape"
@@ -209,7 +209,6 @@ export const content = {
       },
       landAffinity: "Forests, Towers",
       discordEmoji: "🏹",
-      art: "/assets/art/classes/class-archer-3000.png",
       webArt500: "/assets/web/art/archer-500.webp",
       webArt1000: "/assets/web/art/archer-1000.webp",
       altText: "Pixel-art brown tabby Archer in a green hood with a bow and quiver in a mossy forest"
@@ -227,7 +226,6 @@ export const content = {
       },
       landAffinity: "Fortresses, Gates",
       discordEmoji: "🛡️",
-      art: "/assets/art/classes/class-heavy-knight-3000.png",
       webArt500: "/assets/web/art/heavy-knight-500.webp",
       webArt1000: "/assets/web/art/heavy-knight-1000.webp",
       altText: "Pixel-art grey tabby Heavy Knight in full dark plate with a tower shield and war hammer"
@@ -245,7 +243,6 @@ export const content = {
       },
       landAffinity: "Temples, Academies",
       discordEmoji: "🔮",
-      art: "/assets/art/classes/class-mage-3000.png",
       webArt500: "/assets/web/art/mage-500.webp",
       webArt1000: "/assets/web/art/mage-1000.webp",
       altText: "Pixel-art white fluffy Mage in a starry indigo pointed hat and robes holding a crystal staff"
@@ -263,12 +260,11 @@ export const content = {
       },
       landAffinity: "Dungeons, Alleys",
       discordEmoji: "🌙",
-      art: "/assets/art/classes/class-assassin-3000.png",
       webArt500: "/assets/web/art/assassin-500.webp",
       webArt1000: "/assets/web/art/assassin-1000.webp",
       altText: "Pixel-art black hooded Assassin cat with glowing eyes and twin violet daggers in a crypt doorway"
     }
-  ] as ClassRecord[],
+  ] satisfies ClassRecord[],
 
   utility: {
     intro: "Three pieces, shipped in phases.",
@@ -297,9 +293,9 @@ export const content = {
           "Some tiles need a Party that meets a claim gate (for example, a Dungeon wants an Assassin and an Archer).",
           "Gates reward collecting different Classes and taking part over time, not just holding the most.",
           "Later (Phase 3), the grandest Landmarks can be owned in slices by many holders.",
-          "If a Territory generates real activity in the protocol, a published portion goes to its owner(s). The split is published before any land sale."
+          "If a Territory generates real fees in the protocol, a published portion goes to its owner(s). The split is published before any land sale."
         ],
-        whatThisIsnt: "Territory details, if any, come only from real activity generated in the protocol and may be zero."
+        whatThisIsnt: "Territory fee distributions, if any, come only from real fees generated in the protocol and may be zero. No fees means nothing to distribute."
       },
       {
         id: "whiskerwild-atlas",
@@ -315,9 +311,11 @@ export const content = {
         ],
         whatThisIsnt: "The Atlas is a game about places and Parties. Ownership first, no grind, and no promises of value."
       }
-    ] as UtilityCard[],
-    territoryDisclaimer: "Territories and Landmark slices are planned features of a game. They are digital collectibles, not real-world property, securities or an investment, and nothing on this site is an offer to sell them. Details will be published before any land sale and may change after legal review.",
-    summaryLine: "Full stack: Meow → Discord identity + Hearth Rest + Party power; Territory → a tile on the Atlas, held by one holder or (for Landmarks) in slices."
+    ] satisfies UtilityCard[],
+    // TODO(legal): lawyer to review all Territory and Landmark-slice wording before launch
+    territoryDisclaimer: "Territories and Landmark slices are planned features of a game. They are digital collectibles, not real-world property, securities or an investment, and nothing on this site is an offer to sell them. Details, including any fee split, will be published before any land sale and may change after legal review.",
+    summaryLabel: "Full stack:",
+    summaryLine: "Meow → Discord identity + Hearth Rest + Party power; Territory → a tile on the Atlas, held by one holder or (for Landmarks) in slices."
   },
 
   roadmap: {
@@ -383,7 +381,7 @@ export const content = {
           "Sponsor banners on select tiles, always clearly labeled."
         ]
       }
-    ] as RoadmapPhase[],
+    ] satisfies RoadmapPhase[],
     footnote: "Plans can change as we build and test. Nothing here is a promise of value or returns."
   },
 
@@ -397,18 +395,20 @@ export const content = {
       { step: 3, title: "Earn Merits", text: "Points stack into tiers that unlock raffle weight." },
       { step: 4, title: "Raffles", text: "Founding Whisk, GTD and WL draws. Method published, results posted." }
     ],
+    pathLine: "Soft Steps → Merits → Merits tiers → raffles for WL, GTD and Founding Whisk (OG).",
     meritsTiers: [
       { emoji: "🐾", tier: "Whisker", text: "First steps. Verified, plus one quest done. Entries into WL raffles." },
       { emoji: "👣", tier: "Pawprint", text: "Showing up week after week. Entries into WL raffles." },
       { emoji: "🧭", tier: "Pathfinder", text: "A strong contributor. Eligible for GTD raffles." },
       { emoji: "🏮", tier: "Lanternbearer", text: "A top contributor. More weight in GTD raffles, plus OG raffle entries." },
       { emoji: "✨", tier: "Atlas-Touched", text: "A small, exceptional group of creators, lore-keepers and helpers. Highest Founding Whisk (OG) raffle weight. A few direct OG awards may go to exceptional contributors, always announced with the reasons." }
-    ] as MeritsTier[],
+    ] satisfies MeritsTier[],
     tiersFinePrint: "Merits are community points with no cash value. They're never spent; your total only grows. Tier thresholds and raffle details are being finalized and will be announced before the first raffle.",
+    // label and emphasis are bold in the reference (9.5)
     whatEachSpotMeans: [
-      "Founding Whisk (OG): guaranteed mint within the OG window.",
-      "GTD: guaranteed mint within the GTD window.",
-      "WL: FCFS access, first come, first served while supply lasts. WL is not a guaranteed mint."
+      { label: "Founding Whisk (OG)", text: "guaranteed mint within the OG window." },
+      { label: "GTD", text: "guaranteed mint within the GTD window." },
+      { label: "WL", text: "FCFS access, first come, first served while supply lasts.", emphasis: "WL is not a guaranteed mint." }
     ],
     spotNotice: "The team never DMs first. Raffle methods are published before every draw (for example, a seeded random draw with the seed revealed afterward), and results are posted in #raffles on our Discord.",
     safetyCallout: "There's nothing to connect yet. Before mint, this site will never ask you to connect a wallet, sign anything, or share a seed phrase. When mint details are ready, we'll announce them here and in #announcements on our Discord."
@@ -468,7 +468,7 @@ export const content = {
       question: "Is this financial advice?",
       answer: "No. Fantasy Meows are digital collectibles. Nothing here is financial advice or an offer of securities. Smart contracts carry risk. Only spend what you're comfortable with."
     }
-  ] as FaqItem[],
+  ] satisfies FaqItem[],
 
   safety: {
     eyebrow: "Stay safe",

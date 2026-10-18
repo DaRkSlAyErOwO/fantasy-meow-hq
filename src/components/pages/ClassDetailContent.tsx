@@ -66,7 +66,7 @@ export const ClassDetailContent: React.FC<ClassDetailContentProps> = ({
             <div className="class-portrait-column">
               <div className="class-portrait-card">
                 <Image
-                  src={cls.webArt1000 || cls.art}
+                  src={cls.webArt1000}
                   alt={cls.altText}
                   fill
                   priority
@@ -128,7 +128,7 @@ export const ClassDetailContent: React.FC<ClassDetailContentProps> = ({
               <div className="class-section-block">
                 <span className="font-label meta-label">Discord Class Hub</span>
                 <p className="font-body" style={{ fontSize: '13.5px', color: 'var(--color-ink-secondary)', margin: '4px 0 0' }}>
-                  Join other {cls.name} cats in <code className="font-mono" style={{ backgroundColor: 'var(--color-parchment-base)', padding: '2px 6px', borderRadius: '3px' }}>#class-hub</code> on our Discord.
+                  Join other {cls.name} cats in <code className="font-label" style={{ backgroundColor: 'var(--color-parchment-base)', padding: '2px 6px', borderRadius: '3px' }}>#class-hub</code> on our Discord.
                 </p>
               </div>
             </div>
@@ -248,8 +248,8 @@ export const ClassDetailContent: React.FC<ClassDetailContentProps> = ({
         :global(.class-hero-panel) {
           background-color: var(--color-parchment-card);
           border-radius: 8px;
-          border: 3px solid #2b1e16;
-          box-shadow: 5px 5px 0 #2b1e16;
+          border: 3px solid var(--color-ink-primary);
+          box-shadow: 5px 5px 0 var(--color-ink-primary);
           overflow: hidden;
           margin-bottom: 32px;
         }
@@ -260,7 +260,7 @@ export const ClassDetailContent: React.FC<ClassDetailContentProps> = ({
           align-items: center;
           padding: 12px 24px;
           background-color: var(--color-parchment-base);
-          border-bottom: 2px solid #2b1e16;
+          border-bottom: 2px solid var(--color-ink-primary);
         }
 
         :global(.neutral-class-badge) {
@@ -309,8 +309,8 @@ export const ClassDetailContent: React.FC<ClassDetailContentProps> = ({
           aspect-ratio: 1;
           border-radius: 6px;
           overflow: hidden;
-          border: 3px solid #2b1e16;
-          box-shadow: 3px 3px 0 #2b1e16;
+          border: 3px solid var(--color-ink-primary);
+          box-shadow: 3px 3px 0 var(--color-ink-primary);
           background-color: var(--color-hearth-soot);
         }
 

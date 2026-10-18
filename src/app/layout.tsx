@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Pixelify_Sans, Lora, Inter } from 'next/font/google';
 import '@/styles/globals.css';
 import { siteConfig } from '@/config/site.config';
+import { StyledJsxRegistry } from '@/components/common/StyledJsxRegistry';
 
 const pixelifySans = Pixelify_Sans({
   subsets: ['latin'],
@@ -28,17 +29,7 @@ export const metadata: Metadata = {
   },
   description: siteConfig.DESCRIPTION,
   metadataBase: new URL(siteConfig.SITE_URL),
-  icons: {
-    icon: [
-      { url: '/icon.png', sizes: '512x512', type: 'image/png' },
-      { url: '/assets/web/brand/logo-crest-square.webp', sizes: '512x512', type: 'image/webp' },
-      { url: '/assets/web/icons/icon-256.png', sizes: '256x256', type: 'image/png' },
-    ],
-    apple: [
-      { url: '/apple-icon.png', sizes: '180x180', type: 'image/png' },
-      { url: '/assets/web/icons/apple-icon-180.png', sizes: '180x180', type: 'image/png' },
-    ],
-  },
+  // Icons come from the file conventions src/app/icon.png and src/app/apple-icon.png
   openGraph: {
     title: `${siteConfig.SITE_NAME} | ${siteConfig.TAGLINE_PRIMARY}`,
     description: siteConfig.DESCRIPTION,
@@ -69,17 +60,17 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${pixelifySans.variable} ${lora.variable} ${inter.variable}`}>
-      <head>
-        <link rel="preload" as="image" href="/assets/hero/layer-0-sky.png" fetchPriority="high" />
-      </head>
+    // suppressHydrationWarning: the home page's intro boot script sets data-intro on <html> before hydration
+    <html lang="en" className={`${pixelifySans.variable} ${lora.variable} ${inter.variable}`} suppressHydrationWarning>
       <body className="font-body">
         <a href="#main-content" className="skip-link">
           Skip to content
         </a>
-        <div id="root-wrapper" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
-          {children}
-        </div>
+        <StyledJsxRegistry>
+          <div id="root-wrapper" style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
+            {children}
+          </div>
+        </StyledJsxRegistry>
       </body>
     </html>
   );
