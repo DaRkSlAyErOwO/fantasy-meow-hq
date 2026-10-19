@@ -108,7 +108,20 @@ export const WhiskerwildSection: React.FC = () => {
                 margin: '0 auto',
               }}
             >
-              &ldquo;{content.world.intro}&rdquo;
+              &ldquo;{content.world.openingLine}&rdquo;
+            </p>
+
+            <p
+              className="font-body"
+              style={{
+                fontSize: '16px',
+                color: 'var(--color-ink-secondary)',
+                lineHeight: 1.6,
+                maxWidth: '680px',
+                margin: '12px auto 0',
+              }}
+            >
+              {content.world.intro}
             </p>
           </div>
 
@@ -246,6 +259,32 @@ export const WhiskerwildSection: React.FC = () => {
                 </p>
               </div>
             </div>
+          </div>
+
+          {/* Arc ending and closing line (hands off to The Six Houses) */}
+          <div style={{ maxWidth: '780px', margin: '44px auto 0', textAlign: 'center' }}>
+            <p
+              className="font-body"
+              style={{
+                fontSize: '16px',
+                color: 'var(--color-ink-secondary)',
+                lineHeight: 1.65,
+                marginBottom: '12px',
+              }}
+            >
+              {content.world.ending}
+            </p>
+            <p
+              className="font-pixel"
+              style={{
+                fontSize: 'clamp(1.4rem, 2.6vw, 1.9rem)',
+                color: 'var(--color-ink-primary)',
+                lineHeight: 1.3,
+                margin: 0,
+              }}
+            >
+              {content.world.closingLine}
+            </p>
           </div>
         </div>
       </div>
