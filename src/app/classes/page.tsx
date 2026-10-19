@@ -1,7 +1,7 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
+import { PixelFooter } from '@/components/layout/PixelFooter';
 import { ClassesIndexContent } from '@/components/pages/ClassesIndexContent';
 
 import { siteConfig } from '@/config/site.config';
@@ -31,7 +31,7 @@ export default function ClassesIndexPage() {
     <>
       <Header />
       <ClassesIndexContent />
-      <Footer />
+      <PixelFooter />
     </>
   );
 }

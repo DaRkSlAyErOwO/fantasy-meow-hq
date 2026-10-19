@@ -2,15 +2,17 @@ import { IntroOverlay } from '@/components/intro/IntroOverlay';
 import { INTRO_BOOT_SCRIPT } from '@/components/intro/introPhase';
 import { Header } from '@/components/layout/Header';
 import { HeroSection } from '@/components/sections/HeroSection';
-import { WhiskerwildSection } from '@/components/sections/WhiskerwildSection';
-import { HousesSection } from '@/components/sections/HousesSection';
-import { ClassesSection } from '@/components/sections/ClassesSection';
-import { UtilitySection } from '@/components/sections/UtilitySection';
-import { RoadmapSection } from '@/components/sections/RoadmapSection';
-import { MintSection } from '@/components/sections/MintSection';
-import { FaqSection } from '@/components/sections/FaqSection';
-import { SafetySection } from '@/components/sections/SafetySection';
-import { Footer } from '@/components/layout/Footer';
+import { WorldChapter } from '@/components/sections/WorldChapter';
+import { HouseBannerWall } from '@/components/sections/HouseBannerWall';
+import { ClassRoster } from '@/components/sections/ClassRoster';
+import { UtilityInventory } from '@/components/sections/UtilityInventory';
+import { RoadmapQuestPath } from '@/components/sections/RoadmapQuestPath';
+import { MintGate } from '@/components/sections/MintGate';
+import { FaqDialogue } from '@/components/sections/FaqDialogue';
+import { SafetyNotice } from '@/components/sections/SafetyNotice';
+import { PixelFooter } from '@/components/layout/PixelFooter';
+import { PixelRevealRoot } from '@/components/pixel/PixelRevealRoot';
+import '@/styles/pixel-sections.css';
 
 export default function HomePage() {
   return (
@@ -20,17 +22,20 @@ export default function HomePage() {
       <IntroOverlay />
       <Header />
       <main id="main-content">
+        {/* Intro storyboard: untouched */}
         <HeroSection />
-        <WhiskerwildSection />
-        <HousesSection />
-        <ClassesSection />
-        <UtilitySection />
-        <RoadmapSection />
-        <MintSection />
-        <FaqSection />
-        <SafetySection />
+        {/* Pixel rebuild: everything below the intro */}
+        <WorldChapter />
+        <HouseBannerWall />
+        <ClassRoster />
+        <UtilityInventory />
+        <RoadmapQuestPath />
+        <MintGate />
+        <FaqDialogue />
+        <SafetyNotice />
       </main>
-      <Footer />
+      <PixelFooter />
+      <PixelRevealRoot />
     </>
   );
 }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
+import { PixelFooter } from '@/components/layout/PixelFooter';
 import { DisclosuresContent } from '@/components/pages/DisclosuresContent';
 
 import type { Metadata } from 'next';
@@ -29,7 +29,7 @@ export default function DisclosuresPage() {
     <>
       <Header />
       <DisclosuresContent />
-      <Footer />
+      <PixelFooter />
     </>
   );
 }

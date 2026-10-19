@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import type { Metadata } from 'next';
 import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
+import { PixelFooter } from '@/components/layout/PixelFooter';
 import { content } from '@/config/content';
 
 export const metadata: Metadata = {
@@ -96,7 +96,7 @@ export default function NotFound() {
           </Link>
         </div>
       </main>
-      <Footer />
+      <PixelFooter />
     </>
   );
 }

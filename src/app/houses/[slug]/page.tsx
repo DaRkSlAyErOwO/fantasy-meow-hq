@@ -2,7 +2,7 @@ import React from 'react';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 import { Header } from '@/components/layout/Header';
-import { Footer } from '@/components/layout/Footer';
+import { PixelFooter } from '@/components/layout/PixelFooter';
 import { HouseDetailContent } from '@/components/pages/HouseDetailContent';
 import { content } from '@/config/content';
 import { siteConfig } from '@/config/site.config';
@@ -63,7 +63,7 @@ export default async function HouseDetailPage({ params }: HousePageProps) {
     <>
       <Header />
       <HouseDetailContent house={house} prevHouse={prevHouse} nextHouse={nextHouse} />
-      <Footer />
+      <PixelFooter />
     </>
   );
 }
