@@ -29,15 +29,18 @@ export const content = {
   world: {
     eyebrow: "The world",
     title: "Whiskerwild",
+    openingLine: "Before the Houses kept their fires, the forest had to be saved.",
     intro: "A patchwork realm of mossy keeps, lantern-lit roads, deep green forests and snow-silent peaks, stitched together by an old magic that only cats can feel.",
     paragraphs: [
-      "Humans call it a \"draft\" or a \"funny feeling.\" Cats know better: it's the hum in their whiskers, the reason they stare at empty corners, the reason they always know when someone is about to open a door.",
-      "Long ago, the cats of Whiskerwild learned to listen to that hum. Those who listened together became the Houses. Those who learned to use it became the Classes: knights who guard, archers who watch, heavy knights who hold, mages who weave, and assassins who slip between shadows.",
-      "Whiskerwild is not at war. It is unfinished. Roads lead to places no one has claimed. Temples stand with their lamps unlit. The Atlas, the great living map, fills in only as Meows go out and make places their own."
+      "Once, Whiskerwild was green from root to ridge. Six Houses kept their fires there, listened to the hum in their whiskers, and argued about the warmest stones. Then the Darkness came in at the edges, quiet as frost. It had no face and asked for nothing. It only spread, and the forest began to rot.",
+      "The cats had never needed to fight, so they learned. Mages answered first, with fire. When the Darkness bred spirits that fire could not burn, Knights took up steel. When it sent trolls the size of hills, Heavy Knights raised greatshields. When it struck from the treeline, Archers climbed and Assassins slipped between shadows. Five answers became five clans. Your House was who you were. Your clan was how you stood.",
+      "Behind the clans, forts and lantern-lit cities rose. When the Darkness pressed on every border at once, the cats summoned heroes from another world, and together they saved the territories and pushed the borders wide. The land was theirs to rule and to defend. Now the far lanterns flicker. The Darkness has risen again, stronger than before, and Whiskerwild needs heroes."
     ],
+    ending: "Every hero starts small. One territory. A few loyal Meows. One fire to keep lit.",
+    closingLine: "Every hero needs a House. Which fire will you stand beside?",
     theCrossing: {
       title: "The Crossing",
-      body: "Every Meow was once an ordinary cat somewhere else. On one quiet night, each noticed a door that hadn't been there before and, being a cat, went through it. That moment is called the Crossing. Every Meow still arrives a cat, but with whiskers that now hum.",
+      body: "Many Meows were once ordinary cats somewhere else. When the Darkness pressed on every border, the cats of Whiskerwild sang to the hum until a door opened into another world. That moment is called the Crossing. Heroes came through to lead, and behind them came barn cats and bookshop cats who had felt the hum and followed. Being cats, they went through. Every Meow still arrives a cat, but with whiskers that now hum.",
       framing: "The Crossing is how we talk about mint: a story beat, not a promise."
     },
     archmages: [
@@ -166,7 +169,7 @@ export const content = {
       emoji: "🌌",
       vibe: "Mysterious, starlit, riddle-tellers",
       tagline: "Starlit mysteries from the edges of the map, who purr in a frequency only the night can hear.",
-      description: "Voidpurr cats are drawn to the places between: the dark between stars, the hush after midnight, the hallway where the lamp has gone out. They aren't villains. They're the keepers of Whiskerwild's mysteries, and Nightskein is their patron. Voidpurrs are dreamers, stargazers and riddle-tellers, and they are extremely good at appearing on top of a wardrobe without anyone seeing them climb.",
+      description: "Voidpurr cats are drawn to the places between: the dark between stars, the hush after midnight, the hallway where the lamp has gone out. Their dark is starlit and kind, the opposite of the Darkness. They're the keepers of Whiskerwild's mysteries, and Nightskein is their patron. Voidpurrs are dreamers, stargazers and riddle-tellers, and they are extremely good at appearing on top of a wardrobe without anyone seeing them climb.",
       motto: "Look closer.",
       signatureColors: [
         { name: "Deep indigo", hex: "#2e2468" },
@@ -429,8 +432,16 @@ export const content = {
       answer: "A pixel-art cat collection set in Whiskerwild, a soft-epic fantasy world where ordinary cats carry quiet magic in their whiskers. Every Meow has a House, a Class, and (later) a place on the Whiskerwild Atlas."
     },
     {
+      question: "What's the story of Whiskerwild?",
+      answer: "Whiskerwild was a peaceful green forest until a nameless Darkness began to rot it from the edges. The cats answered each new threat with a new clan: Mages first, then Knights, Heavy Knights, Archers and Assassins. Behind them they built forts and cities. When the Darkness pressed on every border, they summoned heroes from another world in the Crossing, and together they saved the land. Now the Darkness has risen again, stronger, and Whiskerwild needs heroes."
+    },
+    {
+      question: "What is the Darkness?",
+      answer: "A nameless force, not a character. It rots the forest and sends shadow soldiers, spirits that fire can't burn, and brutes the size of hills. It's drawn in deep indigo and violet with bright eyes, and the story stays brave and hopeful, never gory. Voidpurr's starlit night has nothing to do with it."
+    },
+    {
       question: "What's the difference between a House and a Class?",
-      answer: "Your House (one of six) is who you are in the story and in Discord. Your Class (one of five: Knight, Archer, Heavy Knight, Mage or Assassin) is what you do in the game and on the map. Both are traits in your Meow's metadata. Other traits like fur, eyes and accessories are purely cosmetic."
+      answer: "Your House (one of six) is who you are: your identity and culture in the story and in Discord. The Houses kept their fires long before the Darkness came. Your Class (one of five: Knight, Archer, Heavy Knight, Mage or Assassin) is your fighting clan and what you do in the game and on the map. Any House can join any clan. Both are traits in your Meow's metadata. Other traits like fur, eyes and accessories are purely cosmetic."
     },
     {
       question: "When is mint, and how much will it cost?",

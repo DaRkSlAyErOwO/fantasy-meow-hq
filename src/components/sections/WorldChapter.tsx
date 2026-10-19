@@ -7,12 +7,16 @@ import { PixelParticles } from '@/components/pixel/PixelParticles';
 
 const { world, whatIsThis, ui } = content;
 
-/** Whiskerwild world chapter (#world). Parchment storybook spread, three beats, the Crossing, the Archmages. */
+/** Whiskerwild world chapter (#world). Parchment storybook spread, opening line, three beats, the Crossing, the Arc 1 ending and closing line, the Archmages. */
 export const WorldChapter: React.FC = () => (
   <section id="whiskerwild" className="px-section px-section--parchment" aria-labelledby="world-title">
     <span id="world" className="px-anchor" aria-hidden="true" />
     <div className="container">
       <PixelSectionHead eyebrow={world.eyebrow} title={world.title} intro={world.intro} id="world-title" />
+
+      <p className="px-h3 px-h3--lg px-center" data-px-reveal="wipe">
+        &ldquo;{world.openingLine}&rdquo;
+      </p>
 
       <div className="px-story" >
         <figure className="px-story__art px-frame px-frame--card" data-px-reveal="dissolve">
@@ -61,6 +65,11 @@ export const WorldChapter: React.FC = () => (
           <p className="px-note">{world.theCrossing.framing}</p>
         </div>
       </article>
+
+      <div className="px-center" data-px-reveal="wipe">
+        <p className="px-body">{world.ending}</p>
+        <p className="px-h3 px-h3--lg">{world.closingLine}</p>
+      </div>
 
       <div className="px-archmages">
         <h3 className="px-h3 px-h3--lg px-center" data-px-reveal="wipe">

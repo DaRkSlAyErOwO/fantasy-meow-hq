@@ -137,6 +137,8 @@ Read these before writing a single component. If a design idea conflicts with a 
 - No exclamation-mark stacks, no "🚀", no "WAGMI", no "LFG", no "don't miss out", no urgency.
 - Cats are dignified and a little ridiculous. Humor comes from cat behavior (naps, knocking things off tables, sitting by doors), not memes.
 - Voidpurr is mysterious, never evil. No grimdark, no gore.
+- **The Darkness** (Arc 1 v3) is a nameless force: a rot, shadows and monsters, never a named character and never gory. War beats are brave and hopeful. No named characters in the story copy. The rot is violet, never brown. Never color Voidpurr with the rot violet: their starlit night is the opposite of the Darkness.
+- Ruling and defending land is story, never earning. Lore copy never says earn, yield, value or returns about land or Meows.
 - Not baby-talk: no "uwu", no oversized sparkle-eye cuteness in copy.
 
 ### 2.3 Banned-word check (run before you finish)
@@ -173,7 +175,7 @@ Search the built site text (case-insensitive, whole words). Each of these must r
 ### 3.2 Voice: "Cozy wonder, soft-epic, still a cat"
 
 - **Cozy wonder:** lantern light, tea steam, moss on old stone, the hush before a story starts. We invite people in; we don't shout at them.
-- **Soft-epic:** banners, oaths, ancient magic and great halls. The stakes feel big but kind. A storybook at dusk, not a war film.
+- **Soft-epic:** banners, oaths, ancient magic and great halls. The stakes feel big but kind. Whiskerwild has a war against a nameless Darkness, told like a storybook at dusk, not a war film.
 - **Still a cat:** every Meow is unmistakably a cat. Knights still knock things off tables. Mages still nap in sunbeams on top of spellbooks.
 
 **Avoid:** grimdark, baby-kawaii, corporate fluff ("synergistic ecosystem"), crypto-bro hype ("WAGMI to the moon", floor talk, countdown panic, "last chance" pressure).
@@ -189,7 +191,7 @@ Search the built site text (case-insensitive, whole words). Each of these must r
 | "Exclusive WL spots, guaranteed!" | "WL is not a guaranteed mint. Only Founding Whisk (OG) and GTD are guaranteed, and only within their windows." |
 | "Join 10k holders earning daily" | "Join the Discord, pick your House, and start earning Merits." |
 | "Our roadmap: Q1 mint, Q2 token, Q3 metaverse" | "Phases ship when they're ready, never on hype alone." |
-| "Voidpurr: the darkest, rarest, most powerful House" | "They aren't villains. They're the keepers of Whiskerwild's mysteries." |
+| "Voidpurr: the darkest, rarest, most powerful House" | "Their dark is starlit and kind, the opposite of the Darkness. They're the keepers of Whiskerwild's mysteries." |
 | "Lost? 404 error." | "This path isn't on the map yet. Even Sembla wanders off sometimes." |
 
 Other good lines to borrow tone from: "Pull up a cushion by the fire." · "Short, so you can get back to napping." · "This is a story, not a trading floor." · "Kindness counts, and speed doesn't."
@@ -200,27 +202,40 @@ Other good lines to borrow tone from: "Pull up a cushion by the fire." · "Short
 
 ### 4.1 Whiskerwild
 
+*Arc 1 v3 (the Darkness war story), founder-approved Oct 19, 2026. Full scroll story with scene notes and chapter colors: `fantasy-meows-lore/scroll-story-v3.md`. The site shows it compactly, using the copy below.*
+
+**Copy (opening line, shown under the title):**
+> Before the Houses kept their fires, the forest had to be saved.
+
 **Copy (intro, one sentence):**
 > A patchwork realm of mossy keeps, lantern-lit roads, deep green forests and snow-silent peaks, stitched together by an old magic that only cats can feel.
 
 **Copy (three paragraphs):**
-> Humans call it a "draft" or a "funny feeling." Cats know better: it's the hum in their whiskers, the reason they stare at empty corners, the reason they always know when someone is about to open a door.
+> Once, Whiskerwild was green from root to ridge. Six Houses kept their fires there, listened to the hum in their whiskers, and argued about the warmest stones. Then the Darkness came in at the edges, quiet as frost. It had no face and asked for nothing. It only spread, and the forest began to rot.
 >
-> Long ago, the cats of Whiskerwild learned to listen to that hum. Those who listened together became the **Houses**. Those who learned to *use* it became the **Classes**: knights who guard, archers who watch, heavy knights who hold, mages who weave, and assassins who slip between shadows.
+> The cats had never needed to fight, so they learned. Mages answered first, with fire. When the Darkness bred spirits that fire could not burn, Knights took up steel. When it sent trolls the size of hills, Heavy Knights raised greatshields. When it struck from the treeline, Archers climbed and Assassins slipped between shadows. Five answers became five clans. Your House was who you were. Your clan was how you stood.
 >
-> Whiskerwild is not at war. It is *unfinished*. Roads lead to places no one has claimed. Temples stand with their lamps unlit. The Atlas, the great living map, fills in only as Meows go out and make places their own.
+> Behind the clans, forts and lantern-lit cities rose. When the Darkness pressed on every border at once, the cats summoned heroes from another world, and together they saved the territories and pushed the borders wide. The land was theirs to rule and to defend. Now the far lanterns flicker. The Darkness has risen again, stronger than before, and Whiskerwild needs heroes.
+
+**Copy (ending, after The Crossing block):**
+> Every hero starts small. One territory. A few loyal Meows. One fire to keep lit.
+
+**Copy (closing line, hands off to The Six Houses):**
+> Every hero needs a House. Which fire will you stand beside?
+
+**Lore rules (Arc 1 v3):** no named characters; the Darkness is a nameless force; no gore. The rot is violet, never brown, and Voidpurr never gets the rot violet. Houses predate the Darkness. The five Classes are fighting clans, each born as an answer to a new threat. Any House can join any clan. Ruling and defending land is story, never earning. The old framing "Whiskerwild is not at war. It is unfinished." is retired.
 
 ### 4.2 The Crossing (the door story hook)
 
-The Crossing is the soft origin myth and the story framing for mint ("a new Meow crosses into Whiskerwild"). It is a story beat, not a mechanic or a promise.
+The Crossing is the arrival only: the moment the cats of Whiskerwild sang open a door into another world and summoned heroes, with ordinary cats following them through. It is also the story framing for mint ("a new Meow crosses into Whiskerwild"). It is a story beat, not a mechanic or a promise.
 
 **Copy (short, for the home page):**
 > **The Crossing**
-> Every Meow was once an ordinary cat somewhere else. On one quiet night, each noticed a door that hadn't been there before and, being a cat, went through it. That moment is called the Crossing. Every Meow still arrives a cat, but with whiskers that now *hum*.
+> Many Meows were once ordinary cats somewhere else. When the Darkness pressed on every border, the cats of Whiskerwild sang to the hum until a door opened into another world. That moment is called the Crossing. Heroes came through to lead, and behind them came barn cats and bookshop cats who had felt the hum and followed. Being cats, they went through. Every Meow still arrives a cat, but with whiskers that now *hum*.
 >
 > The Crossing is how we talk about mint: a story beat, not a promise.
 
-**Copy (long version, "Lore Crumb #1", optional on the site; it matches the Discord #lore-crumbs post):**
+**Copy (long version, "Lore Crumb #1"; it matches the Discord #lore-crumbs post):** *Written before Arc 1 v3 ("Every Meow", a quiet night, no summoning). Don't add it to the site until Lore Keeper rewrites it to match the summoning (`TODO(founder)`).*
 > **Lore Crumb #1: The Crossing**
 > Every Meow in Whiskerwild was once an ordinary cat somewhere else. A barn cat. A bookshop cat. A windowsill cat with strong opinions about pigeons.
 >
@@ -245,12 +260,14 @@ Three soft-mythic figures remembered in songs. Maybe real, maybe exaggerated, de
 | Cinderbowl | the Hearth-Warden | A broad, ginger, scarred old tom who kept the first fire burning through the Long Frost by curling around it for a season. Gruff, generous, and asleep more often than not. | "Rest is not idleness. Rest is how the fire stays lit." |
 | Nightskein | the Quiet Thread | A black cat with one white whisker, who is said to know every secret of Whiskerwild and tell none of them. Kind but unknowable. | "Some doors open only when no one is watching." |
 
-*Note: Sembla is tied to roads, maps and the Atlas; Cinderbowl to the Hearth, rest and Emberkin; Nightskein to stars, dreams and Voidpurr. There is no confirmed art for individual Archmages. `assets/art/specials/special-archmage-3000.png` exists as a direction sample only; use it on the site only if the founder approves (`TODO(founder)`).*
+*Note: Sembla is tied to roads, maps and the Atlas; Cinderbowl to the Hearth, rest and Emberkin; Nightskein to stars, dreams and Voidpurr. There is no confirmed art for individual Archmages. `assets/art/specials/special-archmage-3000.png` exists as a direction sample only; use it on the site only if the founder approves (`TODO(founder)`). Arc 1 v3 check: the Archmage quotes and descriptions still fit (Nightskein's quiet night is not the Darkness, and must never be drawn or written as part of it). Whether the Archmages lived before, during or after the war is open (`TODO(founder)`).*
 
 ### 4.4 Factions at a glance
 
-- **Houses (6)** = identity, story and Discord culture. No House is better, rarer or worth more than another.
-- **Classes (5)** = what a Meow does in the game: how it claims, defends and upgrades places on the Atlas.
+- **Houses (6)** = identity, story and Discord culture. They kept their fires long before the Darkness came. No House is better, rarer or worth more than another.
+- **Classes (5)** = the five fighting clans, each born as an answer to a new threat from the Darkness (Mage, then Knight, Heavy Knight, Archer, Assassin). In the game, how a Meow claims, defends and upgrades places on the Atlas.
+- **Any House can join any clan.** "Your House was who you were. Your clan was how you stood."
+- **The Darkness** = a nameless force that rots the forest. Shadows and monsters, never a named villain, never gore. It has risen again, stronger.
 - **The Atlas** = the great living map. Places on it fill in as Meows make them their own (later phases).
 
 ---
@@ -354,7 +371,7 @@ Display order everywhere: Circle of Whisk, Pawguard, Rootpads, Emberkin, Rimewhi
 | Emoji | 🌌 |
 | Vibe | Mysterious, starlit, riddle-tellers |
 | Tagline | Starlit mysteries from the edges of the map, who purr in a frequency only the night can hear. |
-| Description | Voidpurr cats are drawn to the places between: the dark between stars, the hush after midnight, the hallway where the lamp has gone out. They aren't villains. They're the keepers of Whiskerwild's mysteries, and Nightskein is their patron. Voidpurrs are dreamers, stargazers and riddle-tellers, and they are extremely good at appearing on top of a wardrobe without anyone seeing them climb. |
+| Description | Voidpurr cats are drawn to the places between: the dark between stars, the hush after midnight, the hallway where the lamp has gone out. Their dark is starlit and kind, the opposite of the Darkness. They're the keepers of Whiskerwild's mysteries, and Nightskein is their patron. Voidpurrs are dreamers, stargazers and riddle-tellers, and they are extremely good at appearing on top of a wardrobe without anyone seeing them climb. |
 | Motto | "Look closer." |
 | Signature colors | Deep indigo `#2e2468` · Starlight violet `#9a7ae0` · Black `#14111c` |
 | Discord channel | `#voidpurr` |
@@ -375,7 +392,7 @@ Display order everywhere: Circle of Whisk, Pawguard, Rootpads, Emberkin, Rimewhi
 
 Display order everywhere: Knight, Archer, Heavy Knight, Mage, Assassin. URL slugs are fixed.
 
-*Note: "Lore line" comes from the Whiskerwild lore ("knights who guard, archers who watch..."). "Discord emoji" is the emoji used in the Discord #class-hub post; it's optional on the site. Heavy Knight's 🛡️ is the same emoji as Pawguard, so if you use emoji for Classes, consider skipping them (`TODO(founder)` to pick a different Heavy Knight emoji). "Game kit" ratings are illustrative design intent; show them only with the tuning note.*
+*Note: "Lore line" comes from the Whiskerwild lore ("knights who guard, archers who watch..."). In Arc 1 v3 each Class is a fighting clan born to answer a new threat from the Darkness: Mages first (fire), then Knights (spirits fire couldn't burn), Heavy Knights (trolls), Archers (dark bolts from afar) and Assassins (the Darkness hiding deep in the rot). "Discord emoji" is the emoji used in the Discord #class-hub post; it's optional on the site. Heavy Knight's 🛡️ is the same emoji as Pawguard, so if you use emoji for Classes, consider skipping them (`TODO(founder)` to pick a different Heavy Knight emoji). "Game kit" ratings are illustrative design intent; show them only with the tuning note.*
 
 ### 6.1 Knight
 
@@ -696,35 +713,41 @@ Use this exact order. Render as an accessible accordion (`<details>`/`<summary>`
 1. **What is Fantasy Meows?**
    A pixel-art cat collection set in Whiskerwild, a soft-epic fantasy world where ordinary cats carry quiet magic in their whiskers. Every Meow has a House, a Class, and (later) a place on the Whiskerwild Atlas.
 
-2. **What's the difference between a House and a Class?**
-   Your House (one of six) is who you are in the story and in Discord. Your Class (one of five: Knight, Archer, Heavy Knight, Mage or Assassin) is what you do in the game and on the map. Both are traits in your Meow's metadata. Other traits like fur, eyes and accessories are purely cosmetic.
+2. **What's the story of Whiskerwild?** *(new for Arc 1 v3)*
+   Whiskerwild was a peaceful green forest until a nameless Darkness began to rot it from the edges. The cats answered each new threat with a new clan: Mages first, then Knights, Heavy Knights, Archers and Assassins. Behind them they built forts and cities. When the Darkness pressed on every border, they summoned heroes from another world in the Crossing, and together they saved the land. Now the Darkness has risen again, stronger, and Whiskerwild needs heroes.
 
-3. **When is mint, and how much will it cost?**
+3. **What is the Darkness?** *(new for Arc 1 v3)*
+   A nameless force, not a character. It rots the forest and sends shadow soldiers, spirits that fire can't burn, and brutes the size of hills. It's drawn in deep indigo and violet with bright eyes, and the story stays brave and hopeful, never gory. Voidpurr's starlit night has nothing to do with it.
+
+4. **What's the difference between a House and a Class?**
+   Your House (one of six) is who you are: your identity and culture in the story and in Discord. The Houses kept their fires long before the Darkness came. Your Class (one of five: Knight, Archer, Heavy Knight, Mage or Assassin) is your fighting clan and what you do in the game and on the map. Any House can join any clan. Both are traits in your Meow's metadata. Other traits like fur, eyes and accessories are purely cosmetic.
+
+5. **When is mint, and how much will it cost?**
    Supply, prices, per-wallet limits, mint windows and chain are all still to be announced. We'll publish them on this site and in the Discord announcements channel once they're locked. Until then, any number you see elsewhere isn't from us.
 
-4. **How do I get on the list?**
+6. **How do I get on the list?**
    Join the Discord, verify, pick your House and take part in the weekly Soft Steps quests to earn Merits. Higher Merits tiers mean more weight in raffles for WL, GTD and Founding Whisk (OG). Raffle methods are published and results are posted openly.
 
-5. **Is WL guaranteed?**
+7. **Is WL guaranteed?**
    No. WL gives FCFS access, which is first come, first served while supply lasts and not guaranteed. Only Founding Whisk (OG) and GTD are guaranteed, and only within their mint windows.
 
-6. **What is Hearth Rest? Are Rest Points money?**
+8. **What is Hearth Rest? Are Rest Points money?**
    Hearth Rest (Phase 1) lets you rest your Meow by the fire to build Rest Points. Rest Points are non-monetary points with no cash value. They power your Party on the Atlas and unlock in-world perks. They aren't a token and aren't redeemable for money.
 
-7. **Is there a token?**
+9. **Is there a token?**
    Not now. Rest Points are points. If a token ever exists, we'll explain it plainly first.
 
-8. **Will owning a Territory pay me?**
+10. **Will owning a Territory pay me?**
    Territories are digital places on the Atlas. If a Territory generates real fees in the protocol (marketplace activity, upgrades, sponsor slots, in-tile activity), a published portion is routed to its owner(s). That amount may be zero, and nothing is guaranteed. We'll publish the split before any land sale.
    *(`TODO(legal)`: lawyer review. Show the Territory disclaimer link: "Read the disclosures".)*
 
-9. **Do I need to connect a wallet on this site?** *(new for the rebuild; founder to approve)*
+11. **Do I need to connect a wallet on this site?** *(new for the rebuild; founder to approve)*
    No. There's nothing to connect before mint. This site will never ask you to connect a wallet, sign anything, or share a seed phrase or private key. If a site that looks like ours asks you to, it's a scam.
 
-10. **Will the team ever DM me?**
+12. **Will the team ever DM me?**
     Never first. Official links live only on this site and in #safety-scams on our Discord. If someone DMs you offering a mint, WL or "support", it's a scam.
 
-11. **Is this financial advice?**
+13. **Is this financial advice?**
     No. Fantasy Meows are digital collectibles. Nothing here is financial advice or an offer of securities. Smart contracts carry risk. Only spend what you're comfortable with.
 
 ---
@@ -846,7 +869,7 @@ Sections in this order:
 | 02 | A Class | What you do on the map and in the game. |
 | 03 | A place | Territories on the Whiskerwild Atlas. |
 
-**3. Whiskerwild (`#world`)** — eyebrow "The world", title "Whiskerwild". Intro sentence and three paragraphs from 4.1. "The Crossing" short block from 4.2. "The Archmages": three entries from 4.3 (name, title, quote; descriptions optional). Optional: Lore Crumb #1 (4.2 long version) as an expandable "Read the first lore crumb".
+**3. Whiskerwild (`#world`)** — eyebrow "The world", title "Whiskerwild". Opening line, intro sentence and three paragraphs from 4.1. "The Crossing" short block from 4.2, then the 4.1 ending and closing line ("Every hero needs a House. Which fire will you stand beside?") leading into The Six Houses. A full scroll-story animation of Arc 1 is optional and not required. "The Archmages": three entries from 4.3 (name, title, quote; descriptions optional). Lore Crumb #1 stays off the site until it is rewritten for Arc 1 v3.
 
 **4. The Six Houses (`#houses`)** — eyebrow "Who you are", title "The Six Houses", intro "House is identity first: Discord flair, lore, and culture. Every Meow belongs to one." Six cards, each: art, emoji + name, vibe, tagline, motto ("Motto: "…""), three color swatches (with color names for screen readers), link "Read the {Name} page →" to `/houses/{slug}/`. Fine print: "Houses are identity and story. No House is better, rarer or worth more than another."
 
@@ -1206,6 +1229,7 @@ The old site's copy (`lib/content.ts`) was the base. These are the deliberate ch
 10. **Mage alt text** says "indigo" hat instead of "blue", to match the image.
 11. **Roadmap titles** keep the old site's names; the Discord's alternative titles are noted in Section 8.
 12. **Facts not found in any source** (left as TBA/TBD on purpose): domain, hosting, chain, every mint number and date, team reserve, reveal style, Merits thresholds, token timing, Terms/Privacy text, final art.
+13. **Arc 1 v3 (Oct 19, 2026, founder-approved).** The World copy (4.1), the Crossing short block (4.2), Factions (4.4), the Voidpurr line ("They aren't villains" is now "Their dark is starlit and kind, the opposite of the Darkness"), and the FAQ (two new questions and a new House vs Class answer) follow `scroll-story-v3.md`. Retired: "Whiskerwild is not at war. It is unfinished.", "Humans call it a draft", and the "Those who listened together became the Houses" origin.
 
 ---
 
@@ -1215,7 +1239,9 @@ The old site's copy (`lib/content.ts`) was the base. These are the deliberate ch
 |---|---|
 | Meow | One Fantasy Meows collectible (a pixel cat with a House and a Class). |
 | Whiskerwild | The fantasy world where the Meows live. |
-| The Crossing | The story of each cat stepping through a mysterious door into Whiskerwild; also how the project talks about mint. |
+| The Crossing | The arrival: the cats of Whiskerwild sang open a door into another world and summoned heroes, with ordinary cats following them through. Also how the project talks about mint. |
+| The Darkness | The nameless force that rots Whiskerwild. Shadows and monsters, never a named villain, never gore. Drawn in indigo and rot violet, never brown. |
+| Clan | One of the five fighting clans, the same as the five Classes. Any House can join any clan. |
 | House | One of six identity groups (story and Discord culture). |
 | Class | One of five roles in the game (Knight, Archer, Heavy Knight, Mage, Assassin). |
 | Party | A group of one or more Meows that acts together on the Atlas (planned). |
